@@ -1,0 +1,44 @@
+.mce-content-body p:after {
+  content:'';
+  display:block;
+  clear: both;
+}
+.mce-content-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.mce-content-body img {
+	max-width: 100%;
+}
+.mce-content-body a {
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -kthtml-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  color: #a96a17;
+}
+img.alignright {
+  float: right;
+  margin: 5px 0 15px 15px;
+}
+img.alignleft {
+  float: left;
+  margin: 5px 15px 15px 0;
+}
+img.aligncenter {
+  float: none;
+  display: block;
+  margin: 0 auto 15px;
+}
+.mce-content-body img.size-full {
+	box-sizing: border-box;
+	max-width: 100%;
+	width: 100%;
+}
+.mce-content-body {
+  font: 14px/24px "Georgia", Arial, sans-serif;
+  width: 100%;
+  color: #404040;
+}

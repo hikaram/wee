@@ -1,0 +1,1 @@
+<?php joints_related_posts(); ?>
