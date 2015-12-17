@@ -1,5 +1,6 @@
 <!-- Left colunm -->
 <div id="left_column" class="column col-xs-12 col-sm-3">
+      
     <!-- block category -->
     <div class="block left-module">
         <p class="title_block">ТОВАРЫ</p>
@@ -67,20 +68,22 @@ $args2 = array(
                         </li>
 <?php } ?>
                     </ul>
+                 
                 </div>
             </div>
             <!-- ./layered -->
+             
         </div>
     </div>
     <!-- ./block category  -->
     <!-- block filter -->
-    <div class="block left-module">
+   <!-- <div class="block left-module">
         <p class="title_block">ФИЛЬТР</p>
         <div class="block_content">
             <!-- layered -->
-            <div class="layered layered-filter-price">
+       <!--     <div class="layered layered-filter-price">
                 <!-- filter categgory -->
-                <div class="layered_subtitle">CATEGORIES</div>
+              <!--  <div class="layered_subtitle">CATEGORIES</div>
                 <div class="layered-content">
                     <ul class="check-box-list">
                         <li>
@@ -143,7 +146,7 @@ $args2 = array(
                 </div> 
                 <!-- ./filter categgory -->
                 <!-- filter price -->
-                <div class="layered_subtitle">price</div>
+           <!--     <div class="layered_subtitle">price</div>
                 <div class="layered-content slider-range">
                     
                     <div data-label-reasult="Range:" data-min="0" data-max="500" data-unit="$" class="slider-range-price" data-value-min="50" data-value-max="350"></div>
@@ -174,7 +177,7 @@ $args2 = array(
                 </div>
                 <!-- ./filter price -->
                 <!-- filter color -->
-                <div class="layered_subtitle">Color</div>
+             <!--   <div class="layered_subtitle">Color</div>
                 <div class="layered-content filter-color">
                     <ul class="check-box-list">
                         <li>
@@ -230,7 +233,7 @@ $args2 = array(
                 </div>
                 <!-- ./filter color -->
                 <!-- ./filter brand -->
-                <div class="layered_subtitle">brand</div>
+             <!--   <div class="layered_subtitle">brand</div>
                 <div class="layered-content filter-brand">
                     <ul class="check-box-list">
                         <li>
@@ -272,7 +275,7 @@ $args2 = array(
                 </div>
                 <!-- ./filter brand -->
                 <!-- ./filter size -->
-                <div class="layered_subtitle">Size</div>
+           <!--     <div class="layered_subtitle">Size</div>
                 <div class="layered-content filter-size">
                     <ul class="check-box-list">
                         <li>
@@ -350,11 +353,11 @@ $args2 = array(
                     </ul>
                 </div>
                 <!-- ./filter size -->
-            </div>
+          <!--  </div>
             <!-- ./layered -->
-
+<!--
         </div>
-    </div>
+    </div>-->
     <!-- ./block filter  -->
     
     <!-- left silide -->
@@ -368,14 +371,14 @@ $args2 = array(
     </div>
     <!--./left silde-->
     <!-- SPECIAL -->
-    <div class="block left-module">
+    <!--<div class="block left-module">
         <p class="title_block">SPECIAL PRODUCTS</p>
         <div class="block_content">
             <ul class="products-block">
                 <li>
                     <div class="products-block-left">
                         <a href="#">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
+                            <img src="<?php //echo get_stylesheet_directory_uri() ?>/assets/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
                         </a>
                     </div>
                     <div class="products-block-right">
@@ -399,10 +402,10 @@ $args2 = array(
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- ./SPECIAL -->
     <!-- TAGS -->
-    <div class="block left-module">
+   <!-- <div class="block left-module">
         <p class="title_block">TAGS</p>
         <div class="block_content">
             <div class="tags">
@@ -428,17 +431,17 @@ $args2 = array(
                 <a href="#"><span class="level5">spanegs</span></a>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- ./TAGS -->
     <!-- Testimonials -->
-    <div class="block left-module">
+   <!-- <div class="block left-module">
         <p class="title_block">Testimonials</p>
         <div class="block_content">
             <ul class="testimonials owl-carousel" data-loop="true" data-nav = "false" data-margin = "30" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause = "true" data-items="1">
                 <li>
                     <div class="client-mane">Roverto & Maria</div>
                     <div class="client-avarta">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
+                        <img src="<?php //echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
                     </div>
                     <div class="testimonial">
                         "Your product needs to improve more. To suit the needs and update your image up"
@@ -447,7 +450,7 @@ $args2 = array(
                 <li>
                     <div class="client-mane">Roverto & Maria</div>
                     <div class="client-avarta">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
+                        <img src="<?php //echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
                     </div>
                     <div class="testimonial">
                         "Your product needs to improve more. To suit the needs and update your image up"
@@ -456,7 +459,7 @@ $args2 = array(
                 <li>
                     <div class="client-mane">Roverto & Maria</div>
                     <div class="client-avarta">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
+                        <img src="<?php //echo get_stylesheet_directory_uri() ?>/assets/data/testimonial.jpg" alt="client-avarta">
                     </div>
                     <div class="testimonial">
                         "Your product needs to improve more. To suit the needs and update your image up"
@@ -464,7 +467,10 @@ $args2 = array(
                 </li>
             </ul>
         </div>
-    </div>
+    </div>-->
     <!-- ./Testimonials -->
+    <div class="123">
+                     <?php dynamic_sidebar( 'Widget Shop Area' ); ?>
+                    </div>
 </div>
 <!-- ./left colunm -->
