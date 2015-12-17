@@ -19,8 +19,8 @@ if ( $attachment_ids ) {
 	$loop 		= 0;
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
-	<div class="product-img-thumb">
-		<ul class="owl-carousel" data-items="<?php echo $columns; ?>" data-nav="true" data-dots="false" data-margin="21" data-loop="false">
+	<!--<div class="product-list-thumb">-->
+		<ul class="thumbnails owl-carousel" data-items="<?php echo $columns; ?>" data-nav="true" data-dots="false" data-margin="21" data-loop="false">
 			<?php
 				foreach ( $attachment_ids as $attachment_id ) {
 
@@ -40,7 +40,7 @@ if ( $attachment_ids ) {
 					$image_title 	= esc_attr( get_the_title( $attachment_id ) );
 					$image_caption 	= esc_attr( get_post_field( 'post_excerpt', $attachment_id ) );
 
-					$image       = wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ), 0, $attr = array(
+					$image       = wp_get_attachment_image( $attachment_id, apply_filters( '100', 'shop_thumbnail' ), 0, $attr = array(
 						'title'	=> $image_title,
 						'alt'	=> $image_title
 						) );
@@ -54,6 +54,6 @@ if ( $attachment_ids ) {
 
 			?>
 		</ul>
-	</div>
+	<!--</div>-->
 	<?php
 }

@@ -73,8 +73,9 @@
                             ));
                         ?>
                     </div>
-                    <a href="#">Войти</a>
+
                 </div>
+                <div class="support-link"><a href="#">Войти</a></div>
             </div>
         </div>
     </div>

@@ -909,7 +909,7 @@
 .woocommerce  a.woocommerce-main-image{
 	border: 1px solid #eaeaea;
 	padding: 10px;
-	width: 100%;
+	width: auto;
 	float: left;
 }
 .woocommerce div.product div.images div.thumbnails{
@@ -919,6 +919,9 @@
 }
 .woocommerce div.product div.images div.thumbnails .owl-item{
 	padding-right: 1px;
+}
+.owl-item li a img {
+	width: 100px;
 }
 
 .woocommerce div.product form.cart .variations{
