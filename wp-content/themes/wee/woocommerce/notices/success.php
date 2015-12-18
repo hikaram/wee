@@ -19,4 +19,5 @@ if ( ! $messages ){
 
 <?php foreach ( $messages as $message ) : ?>
 	<div class="woocommerce-message"><?php echo wp_kses_post( $message ); ?></div>
+	<?php wp_redirect( admin_url('/dobavlenie-tovara/') ); ?>
 <?php endforeach; ?>

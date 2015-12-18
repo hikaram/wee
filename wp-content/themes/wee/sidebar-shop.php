@@ -469,8 +469,9 @@ $args2 = array(
         </div>
     </div>-->
     <!-- ./Testimonials -->
-    <div class="123">
+    <div class="filter_shop">
                      <?php dynamic_sidebar( 'Widget Shop Area' ); ?>
+                     <?php //do_action('prdctfltr_output'); ?>
                     </div>
 </div>
 <!-- ./left colunm -->

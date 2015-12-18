@@ -1,4 +1,4 @@
-/**
+/*!
  * CodeNegar WooCommerce AJAX Product Filter 
  * WCPF: WooCommerce Product Filter
  *
@@ -6,8 +6,8 @@
  *
  * @package	WooCommerce AJAX Product Filter
  * @author	Farhad Ahmadi
- * @link	http://codenegar.com/woocommerce-ajax-product-filter/
- * version	2.3
+ * @link	http://codenegar.com/go/wcpf
+ * version	2.8.0
  */
  
 var codenegar_page_title = "";
@@ -57,7 +57,7 @@ function codenegar_addParameter(url, parameterName, parameterValue, atStart){
 // Replace cnep=0 with cnep=1 
 function codenegar_correct_cnep($pagination){
 	$pagination.find('a[href]').each(function(){
-		var new_href = jQuery(this).attr('href').replace('cnep=0','cnep=1');
+		var new_href = jQuery(this).attr('href').replace(/cnep=0/g,'cnep=1');
 		jQuery(this).attr('href', new_href);
 	})
 	return $pagination;
@@ -69,10 +69,38 @@ function codenegar_update_pagination(){
 	if(current_theme.indexOf('stylemag') > -1){
 		return true;
 	}
-	return false;
+	if(current_theme.indexOf('storefront') > -1){
+		return false;
+	}
+	if(current_theme.indexOf('statement') > -1){
+		return true;
+	}
+	if(current_theme.indexOf('goodstore') > -1){
+		return false;
+	}
+	if(current_theme.indexOf('wpo shopping') > -1){
+		return true;
+	}
+	if(current_theme.indexOf('adrenalin') > -1){
+		return false;
+	}
+	if(current_theme.indexOf('buyshop') > -1){
+		return false;
+	}
+	// 0 is false but shows that the theme is not listed here
+	return 0;
 }
-function codenegar_add_overlay($wrap, options){
 
+function codenegar_encode_url(url){
+	url = url.replace(/,/g, '%2C');
+	return url;
+}
+
+function codenegar_add_overlay($wrap, options){
+	// Reload entire body, no need to add overlay
+	if(codenegar_wcpf_config.reload_entire_page == 'yes'){
+		return;
+	}
 	var defaults = {
 		bgColor 		: '#fff',
 		opacity			: codenegar_wcpf_config.ajax_overlay_opacity,
@@ -133,7 +161,7 @@ function codenegar_format_range(template, min, max){
 	return ret;
 }
 
-function codenegar_get_parameter( name ){
+function codenegar_get_parameter(name){
 	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
 	var regexS = "[\\?&]"+name+"=([^&#]*)";
 	var regex = new RegExp( regexS );
@@ -253,6 +281,17 @@ function update_filters_count($data){
 	});
 }
 
+function codenegar_get_theme_custom_areas(){
+	var current_theme = codenegar_wcpf_config.current_theme;
+	if(current_theme.indexOf('oxygen') > -1){
+		return 'span.results';
+	}
+	if(current_theme.indexOf('buyshop') > -1){
+		return '.wft_pagination, p.woocommerce-result-count:nth-child(2)';
+	}
+	return '';
+}
+
 function codenegar_get_theme_selector(){
 	var current_theme = codenegar_wcpf_config.current_theme;
 	if(current_theme.indexOf('the retailer') > -1){
@@ -275,6 +314,30 @@ function codenegar_get_theme_selector(){
 	if(current_theme.indexOf('foxy') > -1){
 		return 'div#et_results_settings';
 	}
+    if(current_theme.indexOf('mr. tailor') > -1){
+        return 'ul.products';
+    }
+    if(current_theme.indexOf('the7.2') > -1){
+        return 'div#content';
+    }
+    if(current_theme.indexOf('storefront') > -1){
+        return '.site-main';
+    }
+    if(current_theme.indexOf('wpo shopping') > -1){
+        return '.products';
+    }
+    if(current_theme.indexOf('goodstore') > -1){
+        return '.archive-content';
+    }
+    if(current_theme.indexOf('adrenalin') > -1){
+        return '.product-listing-wrapper';
+    }
+    if(current_theme.indexOf('oxygen') > -1){
+        return '.shop-grid';
+    }
+    if(current_theme.indexOf('buyshop') > -1){
+        return '.span9';
+    }
 	return '';
 }
 
@@ -302,7 +365,7 @@ function hide_empty_widgets(){
 		}
 	});
 	
-	jQuery("..wcpf_updating_widget select").each(function(){
+	jQuery(".wcpf_updating_widget select").each(function(){
 		var $this = jQuery(this);
 		var size =  parseInt($this.children("option").size());
 		if(size == 0){
@@ -333,7 +396,13 @@ function wcpf_get_main_ul(){
 			max = jQuery(this).width();
 		}
 	});
-	return selector;
+	if(typeof selector == 'string' && selector.length>0){
+		return selector;
+	}else{
+		selector = jQuery(".woocommerce-ordering").next();
+		return selector;
+	}
+	
 }
 
 jQuery(function() {
@@ -376,16 +445,24 @@ jQuery("a.codenegar_product_filter_reset_button").live("click", function(e){ // 
 	
 	// push new url
 	History.pushState({state:1}, codenegar_page_title, new_url);
-	jQuery(".codenegar_product_filter_wrap ul li").removeClass("codenegar_applied_filter chosen");
+	var chosen_class = 'codenegar_applied_filter chosen';
+	if (typeof wcpf_chosen_class == 'function') {
+		  chosen_class = wcpf_chosen_class();
+	}
+	jQuery(".codenegar_product_filter_wrap ul li").removeClass(chosen_class);
 });
 
 jQuery(".codenegar_product_filter_wrap ul li a").live("click", function(e){
 	e.preventDefault();
 	var $this = jQuery(this);
-	if($this.attr("data-key") == "cat" && $this.attr("data-widget") == "cat" ){
-		$this.closest("li").siblings().removeClass("codenegar_applied_filter chosen");
+	var chosen_class = 'codenegar_applied_filter chosen';
+	if (typeof wcpf_chosen_class == 'function') {
+		  chosen_class = wcpf_chosen_class();
 	}
-	$this.closest("li").toggleClass("codenegar_applied_filter chosen");
+	if($this.attr("data-key") == "cat" && $this.attr("data-widget") == "cat" ){
+		$this.closest("li").siblings().removeClass(chosen_class);
+	}
+	$this.closest("li").toggleClass(chosen_class);
 	var widget = $this.attr("data-widget");
 	var type = $this.attr("data-type");
 	var key = $this.attr("data-key");
@@ -475,6 +552,12 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 			$wrap = jQuery(codenegar_wcpf_config.wrapper_selector);
 			selector = codenegar_wcpf_config.wrapper_selector;
 		}
+
+		// Reload entire body
+		if(codenegar_wcpf_config.reload_entire_page == 'yes'){
+			window.location.href = State.cleanUrl;
+		}
+
 		// Add AJAX spinner overlay to the product container
 		// {} means use the default spinner options
 		codenegar_add_overlay(jQuery(selector), {});
@@ -487,7 +570,7 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 		}
 
 		// now load filtered products
-		jQuery.get(State.cleanUrl, function(data) {
+		jQuery.get(codenegar_encode_url(State.cleanUrl), function(data) {
 			var $data = jQuery(data);
 			
 			var shop_loop = $data.find(selector);
@@ -510,13 +593,25 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 			
 			// update non-standard pagination
 			// if pagination is not inside main wrap update it
-			var paging_selector = ".pagination, .woo-pagination, .woocommerce-pagination, .emm-paginate, .wp-pagenavi, .pagination-wrapper";
-			if($data.find(".codenegar-shop-loop-wrapper").children(paging_selector).length==0 || codenegar_update_pagination()){
+			var paging_selector = ".pagination, .page-links, .paginator, .woo-pagination, .woocommerce-pagination, .emm-paginate, .wp-pagenavi, .pagination-wrapper, .general-pagination, .template-pagination";
+			var update_pagination = $data.find(".codenegar-shop-loop-wrapper").children(paging_selector).length==0 || codenegar_update_pagination();
+			if(codenegar_update_pagination() === false){
+				update_pagination = false;
+			}
+			if (typeof wcpf_update_pagination == 'function') { 
+			  update_pagination = wcpf_update_pagination(); 
+			}
+			if(update_pagination){
 				var new_pagination = $data.find(paging_selector);
 				new_pagination = codenegar_correct_cnep(new_pagination);
 				jQuery(paging_selector).hide().html(new_pagination).fadeIn();
 			}
-
+			if(update_pagination && codenegar_wcpf_config.hide_duplicate_pagination=='yes'){
+				// Hide possible duplicate pagination links
+				var duplicate_pagination = paging_selector + ':nth-child(2)';
+				duplicate_pagination = duplicate_pagination.replace(/,/g,':nth-child(2),');
+				jQuery(duplicate_pagination).hide();
+			}
 			var selected_cat = 0;
 			var url = State.cleanUrl;
 			var last_parameter = url.substring(url.lastIndexOf('&') + 1);	
@@ -559,7 +654,25 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 					}
 				}
 			}
-			// update custom areas via option
+
+			// Update custom areas for some specific non standard themes
+			var theme_custom_areas = codenegar_get_theme_custom_areas();
+			if(theme_custom_areas.length>0){
+				var areas = codenegar_get_theme_custom_areas().split(",");
+				var length = areas.length;
+				for (var i = 0; i < length; i++){
+					var element = areas[i];
+					var updated_area = $data.find(element).html();
+					if(updated_area && updated_area.length>0){
+						jQuery(element).hide().html(updated_area).fadeIn();
+					}else{
+						jQuery(element).hide().html("");
+					}
+				}
+			}
+
+			// Update custom areas via option
+			// User's areas are processed at the end to have more priority
 			if(codenegar_wcpf_config.custom_areas.length>0){
 				var areas = codenegar_wcpf_config.custom_areas.split(",");
 				var length = areas.length;
@@ -573,6 +686,7 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 					}
 				}
 			}
+
 			
 		}).done(function() {
 			// Remove AJAX spinner overlay
@@ -608,7 +722,7 @@ jQuery(".codenegar_product_filter_wrap select").live("change" ,function(){
 			if (typeof wcpf_after_ajax == 'function') {
 			  wcpf_after_ajax(); 
 			}
-		   });;
+		   });
     });
 
 })(window);

@@ -1,12 +1,12 @@
-/**
+/*!
  * CodeNegar WooCommerce AJAX Product Filter 
  *
  * Admin Panel Script File
  *
  * @package	WooCommerce AJAX Product Filter
  * @author	Farhad Ahmadi
- * @link	http://codenegar.com/woocommerce-ajax-product-filter/
- * version	2.3
+ * @link	http://codenegar.com/go/wcpf
+ * version	2.8.0
  */
  
   jQuery(function() {
@@ -116,5 +116,21 @@ jQuery(function() {
         } else {
             return true;
         }
+    });
+});
+css_editor = '';
+js_editor = '';
+jQuery(document).ready(function($) {
+    css_editor = ace.edit("div_custom_css");
+    css_editor.getSession().setMode("ace/mode/css");
+    css_editor.setValue($("#custom_css").val());
+    css_editor.getSession().on('change', function(e) {
+        $("#custom_css").val( css_editor.getValue());
+    });
+    js_editor = ace.edit("div_custom_js");
+    js_editor.getSession().setMode("ace/mode/javascript");
+    js_editor.setValue($("#custom_js").val());
+    js_editor.getSession().on('change', function(e) {
+        $("#custom_js").val( js_editor.getValue());
     });
 });

@@ -108,6 +108,7 @@ a:focus{
 .button:hover{
   background: #ff3366;
   border: 1px solid #ff3366;
+  color: #000000;
 }
 .input{
   border-radius: 0px;
@@ -3139,11 +3140,12 @@ span.notify-right{
   background: #ccc;
   height: 7px;
 }
-.layered-filter-price .slider-range-price .ui-slider-handle{
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
   border: none;
   border-radius: 0;
-  background: url("../images/range-icon.png") no-repeat;
+  background: url("../images/range-icon.png") no-repeat !important;
   cursor: pointer;
+    height: 2em !important;
 }
 
 .check-box-list{
@@ -5403,4 +5405,61 @@ span.notify-right{
 }
 .owl-next i, .owl-next i {
     line-height: 21px;
+}
+
+.filter_shop aside {
+    border: 1px solid #eaeaea;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+
+.filter_shop aside .widget-title {
+    border-bottom: 1px solid #eaeaea;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 0 !important;
+    padding: 0 0 10px 0 !important;
+    text-transform: uppercase;
+}
+.price_slider_amount {
+    text-align: left !important;
+}
+.price_label {
+    display: inline-block !important;
+}
+
+.filter_shop aside ul li a {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.widget_product_tag_cloud .tagcloud a {
+    border: none;
+    color: #666;
+    display: inline-block;
+    font-size: 14px !important;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 4px 10px;
+    transition: all 0.2s ease-out 0s;
+}
+
+.attachment-kt_shop_single {
+    max-width: 380px !important;
+}
+.add-box {
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.text-success {
+    position: relative;
+    top:-25px;
+    left: -25px;
 }

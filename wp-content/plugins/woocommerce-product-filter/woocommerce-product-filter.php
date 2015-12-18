@@ -1,17 +1,17 @@
 <?php
-/*
-Plugin Name: WooCommerce Product Filter (shared on http://urokwp.ru/)
-Plugin URI: http://codenegar.com/woocommerce-ajax-product-filter/
+/*  
+Plugin Name: WooCommerce Product Filter - kingtheme.net
+Plugin URI: http://codenegar.com/go/wcpf
 Description: Advanced WooCommerce product filtering by category, attribute, meta, taxonomy,...
 Author: Farhad Ahmadi
-Version: 2.3.4
+Version: 2.8.0
 Author URI: http://codenegar.com/
 */
 
 class Codenegar_woocommerce_product_filter {
 
-    public $version = '20140911'; // Latest version release date
-    public $commit_version = '137'; // Git repository commit version
+    public $version = '20150728'; // Latest version release date
+    public $commit_version = '271'; // Git repository commit version
     public $path = ''; // Path of plugin installation
     public $url = ''; // URL of plugin installation
     public $text_domain = 'woocommerce-product-filter'; // Text domain for plugin translation
@@ -23,10 +23,16 @@ class Codenegar_woocommerce_product_filter {
     public $filter; // CodeNegar_wcpf_filter object
     public $is_localized = false; // flag for localization; we want to run it once
 
-    function __construct() {
-        $this->file = __file__;
-        $this->path = dirname($this->file) . '/';
-        $this->url = WP_PLUGIN_URL . '/' . plugin_basename(dirname(__file__)) . '/';
+    public function __construct() {
+        $this->file = __FILE__;
+        $this->path = untrailingslashit(plugin_dir_path($this->file)) . '/';
+        $this->url  = untrailingslashit(plugins_url('/', $this->file)) . '/';
+
+        // Check if page is loaded via SSL so load assets with SSL
+        if(is_ssl()){
+            $this->url = preg_replace('|^http://|', 'https://', $this->url);
+        }
+
         require_once $this->path . 'helper.php';
         require_once $this->path . 'html.php';
         require_once $this->path . 'filter.php';
@@ -50,7 +56,7 @@ class Codenegar_woocommerce_product_filter {
         update_option('codenegar_product_filter', $merged);
         update_option('woocommerce_redirect_on_single_search_result', 'no');
         // Schedule Clearing WCPF old caches
-        // For now Clearing occurs every hour, in the next version we will add an option for it
+        // todo: For now Clearing occurs every hour, in the next version we will add an option for it
         wp_schedule_event(time(), 'hourly', 'codenegar_clear_old_wcpf_caches');
     }
 
@@ -59,8 +65,15 @@ class Codenegar_woocommerce_product_filter {
         $defaults = $this->helper->default_options();
         $merged = codenegar_parse_args($options, $defaults);
         $this->options = $this->helper->array_to_object($merged);
+
+        // clear old wcpf caches hook
+        if($this->options->cache_count == 'yes') {
+            add_action('codenegar_clear_old_wcpf_caches', 'codenegar_clear_old_wcpf_caches');
+        }
+
         $this->helper->register_sidebars();
         $this->helper->register_shortcode();
+        $this->helper->enable_custom_order();
         add_filter('widget_text', 'do_shortcode'); // Enables using shortcode in text widget
     }
 
@@ -74,22 +87,23 @@ class Codenegar_woocommerce_product_filter {
 
     public function register_frontend_assets() {
         // Add frontend assets in footer
-        wp_register_script('codenegar-ajax-search-migrate', $this->url . 'js/migrate.js', array('jquery'), false, true);
-        wp_register_script('codenegar-wcpf-frontend', $this->url . 'js/wcpf_min.js', array(), false, true);
-        wp_register_script('codenegar-wcpf-history-js', $this->url . 'js/history.js', array(), false, true); // supports HTML5 pushState and HTML4 hashtags
-        wp_register_script('codenegar-wcpf-scrollto-js', $this->url . 'js/scrollto_min.js', array(), false, true); // Smooth Scrolling to any jQuery/DOM Element
+        wp_register_script('codenegar-ajax-search-migrate', $this->url . 'js/migrate.min.js', array('jquery'), false, true);
+        wp_register_script('codenegar-wcpf-frontend', $this->url . 'js/wcpf.min.js', array(), false, true);
+        wp_register_script('codenegar-wcpf-history-js', $this->url . 'js/history.min.js', array(), false, true); // supports HTML5 pushState and HTML4 hashtags
+        wp_register_script('codenegar-wcpf-scrollto-js', $this->url . 'js/scrollto.min.js', array(), false, true); // Smooth Scrolling to any jQuery/DOM Element
         wp_register_style('codenegar-wcpf-frontend-style', $this->url . 'css/style.css');
     }
 
     public function register_admin_assets() {
         // Add admin assets in footer
-        wp_register_script('codenegar-admin-option-widget', $this->url . 'js/widget.js', array(), false, true);
-        wp_register_script('codenegar-admin-option-json', $this->url . 'js/json_min.js', array(), false, true);
-        wp_register_script('codenegar-admin-option-script', $this->url . 'js/admin.js', array(), false, true);
-        wp_register_script('codenegar-chosen-script', $this->url . 'js/chosen.js', array(), false, true);
-        wp_register_style('codenegar-wcpf-admin-style', $this->url . 'css/admin.css');
-        wp_register_style('codenegar-admin-option-widget-css', $this->url . 'css/widget.css');
-        wp_register_style('codenegar-chosen-style', $this->url . 'css/chosen.css');
+        wp_register_script('codenegar-admin-option-widget', $this->url . 'js/widget.min.js', array(), false, true);
+        wp_register_script('codenegar-admin-option-json', $this->url . 'js/json.min.js', array(), false, true);
+        wp_register_script('codenegar-admin-option-script', $this->url . 'js/admin.min.js', array(), false, true);
+        wp_register_script('codenegar-chosen-script', $this->url . 'js/chosen.min.js', array(), false, true);
+        wp_register_script('codenegar-ace-script', $this->url . 'js/ace.js', array(), false, true);
+        wp_register_style('codenegar-wcpf-admin-style', $this->url . 'css/admin.min.css');
+        wp_register_style('codenegar-admin-option-widget-css', $this->url . 'css/widget.min.css');
+        wp_register_style('codenegar-chosen-style', $this->url . 'css/chosen.min.css');
         wp_register_style('codenegar-wcpf-smoothness-style', $this->url . 'css/smoothness.css');
     }
 
@@ -107,6 +121,7 @@ class Codenegar_woocommerce_product_filter {
             wp_enqueue_script('jquery');
             wp_enqueue_script('jquery-ui-core');
             wp_enqueue_script('jquery-ui-dialog');
+            wp_enqueue_script('codenegar-ace-script');
             wp_enqueue_script('codenegar-admin-option-json');
             wp_enqueue_script('codenegar-admin-option-script');
             wp_enqueue_script('codenegar-chosen-script');
@@ -128,31 +143,49 @@ class Codenegar_woocommerce_product_filter {
     }
 
     public function before_products() {
-        echo '<div class="codenegar-shop-loop-wrapper">';
+        if($this->options->disable_product_wrapping == 'yes'){
+            return;
+        }
+        $html = '<div class="codenegar-shop-loop-wrapper">';
+        $html = apply_filters('wcpf_before_products', $html);
+        echo $html;
     }
 
     public function after_products() {
-        echo '</div>';
+        if($this->options->disable_product_wrapping == 'yes'){
+            return;
+        }
+        $html = '</div>';
+        $html = apply_filters('wcpf_after_products', $html);
+        echo $html;
     }
 
     public function before_no_products($template_name = '', $template_path = '', $located = '') {
         if ($template_name == 'loop/no-products-found.php') {
-            echo '<div class="codenegar-shop-loop-wrapper">';
+            $html = '<div class="codenegar-shop-loop-wrapper">';
+            $html = apply_filters('wcpf_before_no_products', $html);
+            echo $html;
         }
     }
 
     public function after_no_products($template_name = '', $template_path = '', $located = '') {
         if ($template_name == 'loop/no-products-found.php') {
-            echo '</div>';
+            $html = '</div>';
+            $html = apply_filters('wcpf_after_no_products', $html);
+            echo $html;
         }
     }
 
     public function before_pagination($template_name = '', $template_path = '', $located = '') {
-        echo '<div class="codenegar-shop-pagination-wrapper">';
+        $html = '<div class="codenegar-shop-pagination-wrapper">';
+        $html = apply_filters('wcpf_before_pagination', $html);
+        echo $html;
     }
 
     public function after_pagination($template_name = '', $template_path = '', $located = '') {
-        echo '</div>';
+        $html = '</div>';
+        $html = apply_filters('wcpf_after_pagination', $html);
+        echo $html;
     }
 
     public function add_paging_parameter($link) {
@@ -194,13 +227,14 @@ class Codenegar_woocommerce_product_filter {
             'scroll_to_top' => $this->options->scroll_to_top,
             'ajax_overlay_color' => $this->options->ajax_overlay_color,
             'ajax_overlay_opacity' => $this->options->ajax_overlay_opacity,
+            'reload_entire_page' => $this->options->reload_entire_page,
+            'hide_duplicate_pagination' => $this->options->hide_duplicate_pagination,
             // make wrapper absolute so it can be fully layered with ajax overlay
             'absolute_positioned_container' => $this->options->absolute_positioned_container,
             'ajax_overlay_style' => $this->options->ajax_overlay_style,
-            'home_url' => home_url(),
-            // get_current_theme has been depreacted since WP 3.4
+            'home_url' => home_url(), // get_current_theme has been depreacted since WP 3.4
             'current_theme' => (function_exists('wp_get_theme')) ? strtolower(wp_get_theme()) : strtolower(get_current_theme()),
-            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
+            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
         );
         wp_localize_script($handle, $object_name, $l10n);
     }
@@ -227,8 +261,7 @@ add_filter('posts_join', array(&$codenegar_wcpf->filter, 'posts_join'));
 add_filter('posts_groupby', array(&$codenegar_wcpf->filter, 'posts_groupby'));
 
 // Register frontend/admin scripts and styles
-add_action('wp_enqueue_scripts', array(&$codenegar_wcpf,
-        'register_frontend_assets'));
+add_action('wp_enqueue_scripts', array(&$codenegar_wcpf, 'register_frontend_assets'));
 add_action('admin_init', array(&$codenegar_wcpf, 'register_admin_assets'));
 
 // Make plugin translation ready
@@ -263,7 +296,3 @@ add_filter('paginate_links', array(&$codenegar_wcpf, 'add_paging_parameter'));
 
 // Adds custom user CSS & JS to header
 add_action('wp_head', array(&$codenegar_wcpf, 'add_to_header'));
-
-// clear old wcpf caches hook
-add_action('codenegar_clear_old_wcpf_caches', 'codenegar_clear_old_wcpf_caches');
-?>

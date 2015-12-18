@@ -1,3 +1,6 @@
+/*! json2.js */
+/* 2012-10-08 */
+/* https://github.com/douglascrockford/JSON-js */
 /*
     json2.js
     2012-10-08

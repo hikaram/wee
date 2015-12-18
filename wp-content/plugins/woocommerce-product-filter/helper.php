@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) exit('No direct script access allowed');
 
-/**
+/*  *
  * CodeNegar WooCommerce AJAX Product Filter helper class
  *
  * Contains common plugin methods
@@ -10,21 +10,21 @@ if (!defined('ABSPATH')) exit('No direct script access allowed');
  * @package    	WooCommerce AJAX Product Filter
  * @author      Farhad Ahmadi <ahm.farhad@gmail.com>
  * @license     http://codecanyon.net/licenses
- * @link		http://codenegar.com/woocommerce-ajax-product-filter/
- * @version    	2.3.2
+ * @link		http://codenegar.com/go/wcpf
+ * @version    	2.8.0
  */
 
 class CodeNegar_wcpf_helper {
 
-    function __construct() {
+    public function __construct() {
 
     }
-    
-    /**
+
+    /*  *
      * Converts string to int and makes sure string parameters are safe
-     * @param string/int/array $input, user input value
-     * @param boolean $is_int, force convert to int 
-     * @return string/int safe parameter
+     * @param  string/int/array $input,  user input value
+     * @param  boolean          $is_int, force convert to int
+     * @return string/int       safe parameter
      */
 
     public function prepare_parameter($input, $is_int = false) {
@@ -44,28 +44,30 @@ class CodeNegar_wcpf_helper {
                 $input = trim(stripslashes(strip_tags($input)));
             }
         }
+
         return $input;
     }
 
     public function prepare_sidebars($sidebars) {
         $sidebars = str_replace("'", '"', $sidebars);
         $sidebars = stripslashes($sidebars);
-        $sidebars = (array )json_decode($sidebars, true);
+        $sidebars = (array) json_decode($sidebars, true);
         $return = array();
         foreach ($sidebars as $sidebar) {
             if (count($sidebar) > 0) {
-                $sidebar['apply_to'] = implode(',', (array )$sidebar['apply_to']);
+                $sidebar['apply_to'] = implode(',', (array) $sidebar['apply_to']);
                 $return[] = $sidebar;
             }
         }
         $return = json_encode($return);
+
         return $return;
     }
 
     public function get_sidebars_table($sidebars) {
         global $codenegar_wcpf;
         $sidebars = stripslashes($sidebars);
-        $sidebars = (array )json_decode($sidebars, true);
+        $sidebars = (array) json_decode($sidebars, true);
         $return = "";
         $cat_title = __('Category', $codenegar_wcpf->text_domain);
         $attr_title = __('Attribute', $codenegar_wcpf->text_domain);
@@ -77,12 +79,13 @@ class CodeNegar_wcpf_helper {
             $return .= str_replace(array('%id%', '%title%', '%visible_to%', '%apply_to%', '%shortcode%'), array($id, $sidebar['title'], $visible_to, $sidebar['apply_to'], $this->get_shortcode_string($sidebar)), $template);
             $id++;
         }
+
         return $return;
     }
 
     public function get_sidebars_object($sidebars) {
         $sidebars = stripslashes($sidebars);
-        $sidebars = (array )json_decode($sidebars, true);
+        $sidebars = (array) json_decode($sidebars, true);
         $return = "";
         $template = '{title: "%title%", visible_to: "%visible_to%", apply_to: "%apply_to%"}, ';
         $id = 0;
@@ -91,29 +94,32 @@ class CodeNegar_wcpf_helper {
                 '%id%',
                 '%title%',
                 '%visible_to%',
-                '%apply_to%'), array(
+                '%apply_to%', ), array(
                 $id,
                 $sidebar['title'],
                 $sidebar['visible_to'],
-                $sidebar['apply_to']), $template);
+                $sidebar['apply_to'], ), $template);
             $id++;
         }
+
         return $return;
     }
 
     public function get_shortcode_string($sidebar) {
         $sidebar['apply_to'] = ($sidebar['apply_to'] != '') ? $sidebar['apply_to'] : 0;
+
         return '[ajax_product_filter data=' . $sidebar['title'] . ':' . $sidebar['visible_to'] . ':' . $sidebar['apply_to'] . ']';
     }
 
     public function get_function_string($sidebar) {
         $sidebar['apply_to'] = ($sidebar['apply_to'] != '') ? $sidebar['apply_to'] : 0;
+
         return '<?php ajax_product_filter( "' . $sidebar['title'] . ':' . $sidebar['visible_to'] . ':' . $sidebar['apply_to'] . '" ); ?>';
     }
 
-    /**
+    /*  *
      * Return limit length of a Wordpress post
-     * @param int $limit, number of maximum characters to return
+     * @param  int    $limit, number of maximum characters to return
      * @return string limited character of input
      */
 
@@ -124,10 +130,11 @@ class CodeNegar_wcpf_helper {
         if (strlen($excerpt) < strlen($str)) {
             $excerpt .= '...';
         }
+
         return $excerpt;
     }
 
-    /**
+    /*  *
      * Registers sidebars for using Filters anywhere
      */
 
@@ -135,7 +142,7 @@ class CodeNegar_wcpf_helper {
         global $codenegar_wcpf;
         $sidebars = $codenegar_wcpf->options->sidebars;
         $sidebars = stripslashes($sidebars);
-        $sidebars = (array )json_decode($sidebars, true);
+        $sidebars = (array) json_decode($sidebars, true);
         foreach ($sidebars as $sidebar) {
             register_sidebar(array(
                 'name' => $sidebar['title'],
@@ -144,12 +151,12 @@ class CodeNegar_wcpf_helper {
                 'before_widget' => '<div class="codenegar_wcpf_widget_"' . $sidebar['title'] . '>',
                 'after_widget' => "</div>",
                 'before_title' => '<h3 id="codenegar_wcpf_title_' . $sidebar['title'] . '">',
-                'after_title' => "</h3>")
+                'after_title' => "</h3>", )
             );
         }
     }
 
-    /**
+    /*  *
      * Registers a shortcode for using Filters anywhere
      */
 
@@ -172,18 +179,19 @@ class CodeNegar_wcpf_helper {
 
         if ($atts[1] == 'cat' && !is_tax('product_cat', $apply_to)) {
             return;
-        } else if ($atts[1] == 'attr' && !is_tax('product_tag', $apply_to)) {
+        } elseif ($atts[1] == 'attr' && !is_tax('product_tag', $apply_to)) {
                 return;
-        } else if ($atts[1] == 'all' && !is_tax('product_cat') && !is_post_type_archive('product') && !is_tax('product_tag')) {
+        } elseif ($atts[1] == 'all' && !is_tax('product_cat') && !is_post_type_archive('product') && !is_tax('product_tag')) {
                     return;
         }
 
         ob_start();
         dynamic_sidebar($sidebar_id);
+
         return ob_get_clean();
     }
 
-    /**
+    /*  *
      * Registers a shortcode for using widget anywhere
      */
 
@@ -191,44 +199,50 @@ class CodeNegar_wcpf_helper {
         add_shortcode("ajax_product_filter", array(&$this, 'shortcode'));
     }
 
-    /**
+    /*  *
      * Converts array to stdClass
      * @return stdClass of input
      */
 
     public function array_to_object($input) {
         if (is_array($input)) {
-            return (object)array_map(array(&$this, 'array_to_object'), $input);
+            return (object) array_map(array(&$this, 'array_to_object'), $input);
         } else {
             return $input;
         }
     }
 
-    /**
+    /*  *
      * WooCommerce Product Filter default options
      * @return array of default options
      */
 
     public function default_options() {
         $defaults = array(
-            'loader_image' => WP_PLUGIN_URL . "/" . plugin_basename(dirname(__file__)) . '/' . 'images/ajax-loader2x.gif',
+            'loader_image' => untrailingslashit(plugins_url('/', __FILE__)) . '/' . 'images/ajax-loader2x.gif',
             'sidebars' => "",
             'display_no_products_message' => 'no',
+            'enable_random_order' => 'yes',
+            'hide_duplicate_pagination' => 'no',
             'absolute_positioned_container' => 'no',
-            // by default before refresh contents are replaced
-            'ajax_overlay_style' => 'replace',
+            'disable_product_wrapping' => 'no',
+            'reload_entire_page' => 'no',
+            'ajax_overlay_style' => 'replace', // by default before refresh contents are replaced
             'ajax_overlay_color' => 'transparent',
             'ajax_overlay_opacity' => '1',
             'count_filter_items' => 'yes',
             'hide_empty_items' => 'yes',
             'hide_empty_widgets' => 'no',
             'display_count' => 'yes',
+            'count_template' => '(%s)',
+            'cache_count' => 'yes',
             'scroll_to_top' => 'yes',
             'custom_taxonomies_list' => '',
             'wrapper_selector' => '',
             'custom_areas' => '',
             'custom_css' => '',
-            'custom_js' => '');
+            'custom_js' => '', );
+
         return $defaults;
     }
 
@@ -250,8 +264,10 @@ class CodeNegar_wcpf_helper {
             'child_of' => 0,
             'depth' => 0,
             'show_option_all' => __('Any category', $codenegar_wcpf->text_domain),
-            'echo' => 1);
+            'echo' => 1,
+        );
         $merged = codenegar_parse_args($options, $defaults);
+
         return wp_dropdown_categories($merged);
     }
 
@@ -280,6 +296,7 @@ class CodeNegar_wcpf_helper {
             'hide_empty' => true,
             );
         $all_terms = get_terms($attribute_taxonomy_name, $args);
+
         return $all_terms;
     }
 
@@ -292,6 +309,7 @@ class CodeNegar_wcpf_helper {
         if (strpos($get, "attrs_") === false) {
             return false;
         }
+
         return true;
     }
 
@@ -304,6 +322,7 @@ class CodeNegar_wcpf_helper {
         if (strpos($get, "ctaxs_") === false) {
             return false;
         }
+
         return true;
     }
 
@@ -316,7 +335,8 @@ class CodeNegar_wcpf_helper {
             'total_sales' => __('Total Sales', $codenegar_wcpf->text_domain),
             '_length' => __('Length', $codenegar_wcpf->text_domain),
             '_width' => __('Width', $codenegar_wcpf->text_domain),
-            '_height' => __('Height', $codenegar_wcpf->text_domain));
+            '_height' => __('Height', $codenegar_wcpf->text_domain), );
+
         return $meta_list;
     }
 
@@ -325,6 +345,7 @@ class CodeNegar_wcpf_helper {
         if (!isset($woocommerce) || !is_object($woocommerce)) {
             return false;
         }
+
         return true;
     }
 
@@ -335,6 +356,7 @@ class CodeNegar_wcpf_helper {
         } else {
             $before_widget = str_replace('class="', 'class="' . $layered_class, $before_widget);
         }
+
         return $before_widget;
     }
 
@@ -345,6 +367,7 @@ class CodeNegar_wcpf_helper {
         } else {
             $before_widget = str_replace('class="', 'class="' . $layered_class, $before_widget);
         }
+
         return $before_widget;
     }
 
@@ -371,6 +394,7 @@ class CodeNegar_wcpf_helper {
         }
 
         $return = $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . http_build_query($params);
+
         return $return;
     }
 
@@ -379,16 +403,22 @@ class CodeNegar_wcpf_helper {
         $sql = "SELECT name from " . $wpdb->terms . " WHERE term_id = " . intval($id);
         $title = $wpdb->get_var($sql);
         if ($title && strlen($title) > 0) {
-            return (string )$title;
+            return (string) $title;
         }
+
         return '';
     }
 
     public function is_product_archive() {
+        global $codenegar_wcpf;
+        // First check WooCommerce core functions
+        if(is_shop() || is_product_taxonomy() || is_product_category() || is_product_tag()){
+            return true;
+        }
         if (!is_tax())
             return false;
-        // get list of custom taxonomies
-        $custom_taxes = (array )explode(",", $codenegar_wcpf->options->custom_taxonomies_list);
+        // Get list of custom taxonomies
+        $custom_taxes = (array) explode(",", $codenegar_wcpf->options->custom_taxonomies_list);
         foreach ($custom_taxes as $custom_tax) {
             if (empty($custom_taxes)) {
                 continue;
@@ -402,7 +432,29 @@ class CodeNegar_wcpf_helper {
             if (is_tax('pa_' . $attr->attribute_name))
                 return true;
         }
+
         return false;
+    }
+
+    public function is_wcpf_area($q = false) {
+        $return = true;
+        // If $q parameter is set, we are dealing with applying filters to the result
+        if($q !== false){
+            $return = isset($_GET['cnpf'])
+                      && $_GET['cnpf'] == "1"
+                      && $q->is_main_query();
+        }
+
+        $return =
+            $return
+            && (
+                is_tax('product_cat')
+                || is_post_type_archive('product')
+                || is_tax('product_tag')
+                || $this->is_product_archive()
+                );
+
+        return $return;
     }
 
     public function get_taxonomy_values($taxonomy_name) {
@@ -411,8 +463,46 @@ class CodeNegar_wcpf_helper {
             'hide_empty' => true,
             );
         $all_terms = get_terms($taxonomy_name, $args);
+
         return $all_terms;
     }
-}
 
-?>
+    public function add_custom_order($sorting) {
+        global $codenegar_wcpf;
+        $sorting['random'] = __('Sort by random', $codenegar_wcpf->text_domain);
+
+        return $sorting;
+    }
+
+    public function apply_custom_order($args) {
+        $orderby = '';
+        if(isset($_GET['orderby'])){
+            $orderby = woocommerce_clean($_GET['orderby']);
+        }else{
+            $orderby = apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+        }
+        if ($orderby == 'random') {
+            $args['orderby'] = 'rand';
+            $args['order'] = '';
+            $args['meta_key'] = '';
+        }
+
+        return $args;
+    }
+
+    public function enable_custom_order() {
+        global $codenegar_wcpf;
+        // Add random order if option is checked
+        if($codenegar_wcpf->options->enable_random_order == 'yes'){
+            add_filter('woocommerce_catalog_orderby', array(&$codenegar_wcpf->helper, 'add_custom_order'));
+            add_filter('woocommerce_get_catalog_ordering_args', array(&$codenegar_wcpf->helper, 'apply_custom_order'));
+        }
+    }
+
+    public function get_count_template($count) {
+        global $codenegar_wcpf;
+        $template =  $codenegar_wcpf->options->count_template;
+
+        return htmlspecialchars_decode(stripcslashes(str_replace('%s', $count, $template)));
+    }
+}

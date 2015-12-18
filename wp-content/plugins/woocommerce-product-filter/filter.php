@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) exit('No direct script access allowed');
 
-/**
+/*  *
  * CodeNegar WooCommerce AJAX Product Filter filter class
  *
  * changes wp_query global object to filter products
@@ -10,13 +10,13 @@ if (!defined('ABSPATH')) exit('No direct script access allowed');
  * @package    	WooCommerce AJAX Product Filter
  * @author      Farhad Ahmadi <ahm.farhad@gmail.com>
  * @license     http://codecanyon.net/licenses
- * @link		http://codenegar.com/woocommerce-ajax-product-filter/
- * @version    	2.3.2
+ * @link		http://codenegar.com/go/wcpf
+ * @version    	2.8.0
  */
 
 class CodeNegar_wcpf_filter {
 
-    function __construct() {
+    public function __construct() {
 
     }
 
@@ -60,6 +60,7 @@ class CodeNegar_wcpf_filter {
             }
         }
         $metaquery = array();
+
         foreach ($selected_filters as $key => $value) {
             $values = explode(",", $value);
             if (count($values) != 2) {
@@ -71,7 +72,9 @@ class CodeNegar_wcpf_filter {
                 'key' => $key,
                 'value' => array($min, $max),
                 'type' => 'numeric',
-                'compare' => 'BETWEEN');
+                'compare' => 'BETWEEN',
+            );
+
         }
 
         if (count($metaquery) > 0) {
@@ -87,14 +90,15 @@ class CodeNegar_wcpf_filter {
         global $codenegar_wcpf;
         $taxquery = array('relation' => 'AND');
         // we only apply on of these three types of category filtring
-        // hierarchal category filter
+        // hierarchical category filter
         if (isset($custom_get['cat_cat']) && intval($custom_get['cat_cat']) > 0) { // if category filter is applied
             $taxquery[] = array(
                 'taxonomy' => 'product_cat',
                 'field' => 'id',
                 'terms' => intval($custom_get['cat_cat']),
                 //'include_children' => true,
-                'operator' => 'IN');
+                'operator' => 'IN',
+                );
             // "OR" categories filter
         } elseif (isset($custom_get['cato_cat']) && strlen($custom_get['cato_cat']) > 0) {
             $values = explode(",", $custom_get['cato_cat']);
@@ -105,7 +109,8 @@ class CodeNegar_wcpf_filter {
                     'field' => 'id',
                     'terms' => $values,
                     'include_children' => false, // There may be a bug in wordpress for this parameter it should be true! but false works fow now!
-                    'operator' => 'IN');
+                    'operator' => 'IN',
+                );
             }
             // "AND" categories filter
         } elseif (isset($custom_get['cata_cat']) && strlen($custom_get['cata_cat']) > 0) {
@@ -117,7 +122,7 @@ class CodeNegar_wcpf_filter {
                     'field' => 'id',
                     'terms' => $values,
                     'include_children' => false, // There may be a bug in wordpress for this parameter it should be true! but false works fow now!
-                    'operator' => 'AND');
+                    'operator' => 'AND', );
             }
         }
 
@@ -178,7 +183,7 @@ class CodeNegar_wcpf_filter {
                 'field' => 'id',
                 'terms' => $values,
                 'include_children' => true,
-                'operator' => $operator);
+                'operator' => $operator, );
         }
 
         foreach ($selected_tax as $filter) {
@@ -200,7 +205,7 @@ class CodeNegar_wcpf_filter {
                 'field' => 'id',
                 'terms' => $values,
                 'include_children' => true,
-                'operator' => $operator);
+                'operator' => $operator, );
         }
 
         if (count($taxquery) > 0) {
@@ -268,6 +273,7 @@ class CodeNegar_wcpf_filter {
         }
 
         $where .= $new_where;
+
         return $where;
     }
 
@@ -293,6 +299,7 @@ class CodeNegar_wcpf_filter {
         for ($i = 1; $i <= $count_ctaxs; $i++) {
             $join .= " LEFT JOIN {$wpdb->term_relationships} cntrc{$i} ON {$wpdb->posts}.ID = cntrc{$i}.object_id INNER JOIN {$wpdb->term_taxonomy} cnct{$i} ON cnct{$i}.term_taxonomy_id=cntrc{$i}.term_taxonomy_id INNER JOIN {$wpdb->terms} cnte{$i} ON cnte{$i}.term_id = cnct{$i}.term_id ";
         }
+
         return $join;
     }
 
@@ -315,17 +322,18 @@ class CodeNegar_wcpf_filter {
     }
 
     public function set_date(&$q) { // product publish date filter
-        // Maybe in future versions
+        // todo: Maybe we add date filtering in future versions
     }
 
     public function filter_products(&$q) {
+
         global $codenegar_wcpf;
         // We only want to affect the main query of shop pages
-        if (!isset($_GET['cnpf']) || $_GET['cnpf'] != "1" || !$q->is_main_query() || (!is_tax('product_cat') && !is_post_type_archive('product') && !is_tax('product_tag') && !$codenegar_wcpf->helper->is_product_archive())) {
+        if(!$codenegar_wcpf->helper->is_wcpf_area($q)){
             return;
         }
-        global $wp_query;
 
+        global $wp_query;
         $this->set_tax_query($q);
         $this->set_order($q);
         $this->set_meta_query($q);
@@ -333,13 +341,17 @@ class CodeNegar_wcpf_filter {
         if (isset($_GET['cnep']) && intval($_GET['cnep']) == 0) {
             $wp_query->set('paged', 1);
         }
-        return; // inuput is by reference so we don't need no return any value
+
+        return; // inuput is sent by reference so we don't need to return any value
     }
 
     public function post_count($key = '', $val = '') {
-        global $wp_query;
+        global $wp_query, $codenegar_wcpf;
+        $is_cache_used = false;
         // Create a copy of global query(copy by value not reference)
+        $original_query = clone $wp_query;
         $temp_query = clone $wp_query;
+
         // By default zero results, when we have no results WordPress doesn't update this number
         $temp_query->found_posts = 0;
         // set new url parameters
@@ -370,22 +382,47 @@ class CodeNegar_wcpf_filter {
         $temp_query->set('posts_per_page', 1);
         // No offset, get one post from the beginning
         $temp_query->set('paged', 1);
+        // Only get post IDs and no other element such as post meta,... to get best performance
+        $temp_query->set('fields', 'ids');
+        // Don't order results to get best performance
+        $temp_query->set('orderby', 'none');
+        // Load min comments to get best performance
+        $temp_query->set('comments_per_page', 1);
+        // Control WordPress core query caching
+        // $temp_query->set('cache_results', false);
+        // Ask WooCommerce not to mess this query
+        $temp_query->set('wc_query', false);
+        // Set a flag for count query, so other plugins can recognize its queries easily
+        $temp_query->set('wcpf_count_query', true);
         // Apply new key & value and return count
         $this->set_tax_query($temp_query, $custom_get);
-        $this->set_meta_query($temp_query, $custom_get);
 
         // get cached results
-        $hash = 'cn_wcpf_' . md5(serialize($temp_query));
-        $num = wp_cache_get($hash);
-        
+        $num = false;
+        $hash = '';
+        if($codenegar_wcpf->options->cache_count == 'yes'){
+            $hash = 'cn_wcpf_' . md5(serialize($temp_query));
+            $num = get_transient($hash);
+            $is_cache_used = true;
+        }
+
         // execute the query only when there is no cache
-        if($num===false){
-        	// Execute query and count found posts
-        	$temp_query->get_posts();
-        	$num = $temp_query->found_posts;
-        	// set cache results
-        	// For now cache time is 10 minutes, in the next version we will add an option for it
-        	set_transient($hash, $num, 600);
+        if($num === false){
+            // Execute query and count found posts
+            $temp_query->get_posts();
+            $num = (int) $temp_query->found_posts;
+            // There were no cache so save the result
+            if($codenegar_wcpf->options->cache_count == 'yes') {
+                // todo: For now cache time is 60 minutes, in the next version we will add an option for it
+                set_transient($hash, $num, 3600);
+            }
+        }
+        unset($temp_query);
+        $wp_query = null;
+        $wp_query = clone $original_query;
+        if(!$is_cache_used){
+            // We have modified current archive main query, roll it back to normal
+            $wp_query->get_posts();
         }
 
         return $num;
@@ -399,8 +436,8 @@ class CodeNegar_wcpf_filter {
                 unset($get[$key]);
             }
         }
+
         return $get;
     }
-}
 
-?>
+}

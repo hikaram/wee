@@ -1,12 +1,12 @@
-/**
+/*!
  * CodeNegar WooCommerce AJAX Product Filter 
  *
  * Admin Widget Script File
  *
  * @package	WooCommerce AJAX Product Filter
  * @author	Farhad Ahmadi
- * @link	http://codenegar.com/woocommerce-ajax-product-filter/
- * version	2.3
+ * @link	http://codenegar.com/go/wcpf
+ * version	2.8.0
  */
 
 function update_form(element){
