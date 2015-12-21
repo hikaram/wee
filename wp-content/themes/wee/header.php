@@ -57,7 +57,8 @@
                 </form>
             </div>
             <div class="col-xs-4 col-sm-4 text-right">
-                <div id="user-info-top" class="user-info">
+                <div class="support-link" style="display: inline-block; float: right;"><a href="/wp-login.php">Войти</a></div>
+                <div id="user-info-top" class="user-info" style="display: inline-block; float: right; margin: 0 5px 0 0;">
                     <div class="dropdown">
                         <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Помощь</span></a>
                         <?php
@@ -75,7 +76,7 @@
                     </div>
 
                 </div>
-                <div class="support-link"><a href="#">Войти</a></div>
+
             </div>
         </div>
     </div>

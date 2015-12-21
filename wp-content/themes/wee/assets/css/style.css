@@ -5457,9 +5457,38 @@ span.notify-right{
     margin-bottom: 20px;
     margin-right: 10px;
     padding: 10px;
+    height: 180px;
+}
+.add-box table tr {
+    display: none;
+}
+.add-box table tr:first-child {
+    display: block !important;
 }
 .text-success {
     position: relative;
     top:-25px;
     left: -25px;
+}
+.brand_widget {
+    border: 1px solid #eaeaea;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+}
+.brand_widget h3 {
+    border-bottom: 1px solid #eaeaea;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px !important;
+    padding: 0 0 10px !important;
+    text-transform: uppercase;
+}
+.brand_widget ul li a {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+.header-top-right .homeslider .bx-controls-direction .bx-prev i, .header-top-right .homeslider .bx-controls-direction .bx-next i {
+    line-height: 32px;
 }

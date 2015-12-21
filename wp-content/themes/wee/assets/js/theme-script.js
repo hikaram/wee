@@ -336,6 +336,8 @@
                         $('#nav-top-menu').find('.vertical-menu-content').show();
                     else{
                         $('#nav-top-menu').find('.vertical-menu-content').hide();
+                        $('#user-info-opntop').fadeOut();
+                        $('#form-search-opntop').fadeOut();
                     }
                      $('#nav-top-menu').find('.vertical-menu-content').removeAttr('style');
                 }
@@ -371,13 +373,17 @@
                     $('#nav-top-menu').find('.vertical-menu-content').show();
                 else{
                     $('#nav-top-menu').find('.vertical-menu-content').hide();
+                    $('#user-info-opntop').fadeOut();
+                    $('#form-search-opntop').fadeOut();
                 }
             }
             ///
             $('#shopping-cart-box-ontop .cart-block').appendTo('#cart-block');
             $('#shopping-cart-box-ontop').fadeOut();
+
             $('#user-info-opntop #user-info-top').appendTo('.top-header .container');
             $('#form-search-opntop form').appendTo('#header .header-search-box');
+
         }
     }
     /* Top menu*/

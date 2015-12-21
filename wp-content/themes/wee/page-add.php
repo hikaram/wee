@@ -15,9 +15,12 @@ get_header(); ?>
 
                 <!-- Center colunm-->
                 <div class="center_column" id="center_column">
+
                    <h1>Товар добавлен в корзину!"</h1>
 
-                    <div class="row">
+
+                        <div class="row clearfix">
+                          <div class="container clearfix">
                         <div class="col-sm-5 add-box">
         <span class="fa fa-check-circle fa-3x text-success panel-group-ico"></span>
 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
@@ -75,10 +78,7 @@ get_header(); ?>
 						</div>
 					</td>
 
-					<td class="product-price">
 
-
-					</td>
 				</tr>
 				<?php
 			}
@@ -97,14 +97,14 @@ get_header(); ?>
 </form>
                         </div>
 
-                        <div class="col-sm-5 add-box">
+                        <div class="col-sm-6 add-box">
 
                             <div>
                                 <h2><?php echo 'В вашей корзине '.WC()->cart->get_cart_contents_count().' товар(ов). На сумму '.WC()->cart->get_cart_total();  ?> </h2>
 
                                 <?php echo '<a href="' . esc_url( WC()->cart->get_checkout_url() ) . '" class="checkout-button button alt wc-forward" style="display: inline-block !important;">' . __( 'Proceed to Checkout', 'woocommerce' ) . '</a>'; ?>
-                                &nbsp;&nbsp;<a href="/cart/">Перейти в корзину</a>&nbsp;&nbsp;
-                                <a href="/">Продолжить покупки</a>
+                                &nbsp;&nbsp;<a style="display: inline-block; margin-top: 10px;" href="/cart/">Перейти в корзину</a>&nbsp;&nbsp;
+                                <a style="display: inline-block; margin-top: 10px;" href="/">Продолжить покупки</a>
                             </div>
                         </div>
                     </div>
@@ -115,6 +115,7 @@ get_header(); ?>
             </div>
             <!-- ./row-->
         </div>
+           </div>
     </div>
     <!-- ./page wapper-->
 <?php get_footer(); ?>
