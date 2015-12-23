@@ -376,7 +376,7 @@
                         return;
                     }
                 }
-                container.find('.vertical-menu-content').hide();
+                //container.find('.vertical-menu-content').hide();
                 container.find('.title').removeClass('active');
             }
         })
@@ -601,7 +601,7 @@
                     if(width > 1024)
                         $('#nav-top-menu').find('.vertical-menu-content').show();
                     else{
-                        $('#nav-top-menu').find('.vertical-menu-content').hide();
+                      //  $('#nav-top-menu').find('.vertical-menu-content').hide();
                     }
                     
                      $('#nav-top-menu').find('.vertical-menu-content').removeAttr('style');
@@ -643,7 +643,7 @@
                 if(width > 1024)
                     $('#nav-top-menu').find('.vertical-menu-content').show();
                 else{
-                    $('#nav-top-menu').find('.vertical-menu-content').hide();
+                   // $('#nav-top-menu').find('.vertical-menu-content').hide();
                 }
             }
             ///

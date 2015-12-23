@@ -148,9 +148,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 </form>
 
 <div class="cart-collaterals">
-
-	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
-
+	<?php #do_action( 'woocommerce_cart_collaterals' ); ?>
 </div>
+
+
+<?php 
+	#require_once (TEMPLATEPATH.'/woocommerce/checkout/form-billing.php');
+	echo do_shortcode('[woocommerce_cart]');
+	do_shortcode('[woocommerce_my_account]');
+ ?>
+
 
 <?php do_action( 'woocommerce_after_cart' ); ?>
