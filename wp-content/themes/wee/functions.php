@@ -471,4 +471,7 @@ function excerpt($limit) {
 
 	include_once(TEMPLATEPATH.'/functions2.php');
 
+
+
+
 ?>

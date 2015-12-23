@@ -154,8 +154,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <?php 
 	#require_once (TEMPLATEPATH.'/woocommerce/checkout/form-billing.php');
-	echo do_shortcode('[woocommerce_cart]');
-	do_shortcode('[woocommerce_my_account]');
+	#echo do_shortcode('[woocommerce_cart]');
+	#do_shortcode('[woocommerce_my_account]');
  ?>
 
 

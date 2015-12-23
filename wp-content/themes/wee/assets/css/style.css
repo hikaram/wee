@@ -2072,10 +2072,24 @@ span.notify-right{
     position: relative;
     overflow: hidden;
     padding: 10px 10px 0;
+    height: auto !important;
 }
 .product-list li .left-block a{
   display: block;
   overflow: hidden;
+
+}
+.product-list li .left-block>a{
+    display: table-cell;
+    height: 205px !important;
+    max-height: 205px !important;
+    vertical-align: middle;
+    width: 144px !important;
+}
+.owl-item .left-block>a img {
+    height: auto !important;
+    width: 140px !important;
+    max-height: 185px !important;
 }
 .product-list li .left-block img{
     transition:all 0.5s;
@@ -2125,6 +2139,7 @@ span.notify-right{
     transition: margin-left 0.4s ease 0.4s;
     margin-left: 200px;
     background:  rgba(0,0,0,0.4);
+    line-height: 10px;
     
 }
 .product-list li .quick-view a.heart:before{
@@ -2140,6 +2155,7 @@ span.notify-right{
     -o-transition: margin-left 03s ease 0.3s;
     transition: margin-left 0.3s ease 0.3s;
     margin-left: 200px;
+    line-height: 30px !important;
 }
 .product-list li .quick-view a.compare:before{
     font: normal normal normal 14px/1 FontAwesome;
@@ -2154,6 +2170,7 @@ span.notify-right{
     -o-transition: margin-left 0.2s ease 0.2s;
     transition: margin-left 0.2s ease 0.2s;
     margin-left: 200px;
+    line-height: 10px !important;
 }
 .product-list li .quick-view a.search:before{
     font: normal normal normal 14px/1 FontAwesome;
@@ -5496,3 +5513,25 @@ span.notify-right{
     border: 1px solid #eaeaea;
     padding: 8px 10px;
 }
+
+.view-product-list .pagination {
+    float: none !important;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.nav-links .page-numbers {
+    padding: 5px 10px;
+}
+.nav-links .page-numbers:hover {
+    color: #fff !important;
+}
+.display-product-option .sort-product .orderby {
+    left: -20px;
+    position: relative;
+    top: -30px;
+}
+.cart_item .product-name {
+    padding-left: 5px;
+}
+.select2-container .select2-selection--single {height: 40px !important;}
+.submit_robokassa_payment_form {margin-bottom: 15px;}

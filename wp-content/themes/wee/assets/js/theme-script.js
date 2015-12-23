@@ -340,6 +340,8 @@
                         $('#form-search-opntop').fadeOut();
                     }
                      $('#nav-top-menu').find('.vertical-menu-content').removeAttr('style');
+                } else {
+                    //$('.vertical-menu-content').hide();
                 }
                 ///
                 $('#shopping-cart-box-ontop .cart-block').appendTo('#cart-block');

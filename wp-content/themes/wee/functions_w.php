@@ -44,7 +44,8 @@ if ( ! isset( $content_width ) ) {
 /*if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
 	require THEME_DIR . '/inc/back-compat.php';
 }
- */
+
+ */
 if ( ! function_exists( 'kutetheme_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -580,4 +581,12 @@ if( ! function_exists( 'kt_list_cats' ) ){
         );
         echo wp_kses( $cat_string, $allowed_html );
     }
+}
+
+add_filter ('add_to_cart_redirect', 'redirect_to_checkout');
+
+function redirect_to_checkout() {
+    global $woocommerce;
+    $checkout_url = $woocommerce->cart->get_checkout_url();
+    return $checkout_url;
 }
