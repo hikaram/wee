@@ -45,8 +45,8 @@
             <?php echo kt_get_wpml(); ?>
             
             <div class="support-link">
-                <a href="<?php kt_service_link(); ?>">Вход</a>
-                <a href="<?php kt_support_link(); ?>">Помощь</a>
+                <a href="/login/">Вход</a>
+                <a href="/signup/">Помощь</a>
             </div>
             <?php //echo kt_menu_my_account(); ?>
         </div>
@@ -61,12 +61,13 @@
                     <br /><span class="logofont">интим товары для ярких эмоций</span>
                 </a>
             </div>
-            <div class="col-xs-5 col-sm-5 header-search-box">
-                <form class="form-inline">
+
+            <div class="col-xs-5 col-sm-7 header-search-box">
+                <form class="form-inline" role="search" method="get" id="searchform" action="/">
                       <div class="form-group input-serach">
-                        <input type="text"  placeholder="Начинайте вводить...">
+                        <input type="text"  placeholder="Начинайте вводить..." name="s" id="s" />
                       </div>
-                      <button type="submit" class="pull-right btn-search"></button>
+                      <button id="searchsubmit" type="submit" class="pull-right btn-search"></button>
                 </form>
             </div>
             <?php 

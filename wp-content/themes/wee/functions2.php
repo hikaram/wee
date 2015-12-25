@@ -589,3 +589,19 @@ function sb_woo_remove_reviews_tab($tabs) {
 
     return $tabs;
 }
+
+# Displays a list of popular posts
+function wee_popular_posts($num) {
+    global $wpdb;
+    $querystr = "SELECT $wpdb->posts.post_title, $wpdb->posts.comment_count, $wpdb->posts.ID FROM $wpdb->posts WHERE $wpdb->posts.post_status = 'publish' AND $wpdb->posts.post_type = 'post' ORDER BY $wpdb->posts.comment_count DESC LIMIT $num";
+    $popposts = $wpdb->get_results($querystr, OBJECT);
+    if (count($popposts)>0) {
+        $count = 0;
+        foreach ($popposts as $post) {
+            $count++;
+            $class = 'item';
+            if ($count==$num) $class = 'last';
+            ?><li><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></li><?php
+        }
+    }
+}

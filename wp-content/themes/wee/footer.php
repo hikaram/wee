@@ -71,19 +71,19 @@
                     <ul id="trademark-list">
                         <li id="payment-methods">Принимаем к оплате</li>
                         <li>
-                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-qiwi.jpg"  alt="ups"/></a>
+                           <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-qiwi.jpg"  alt="ups"/>
                         </li>
                         <li>
-                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-wu.jpg"  alt="ups"/></a>
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-wu.jpg"  alt="ups"/>
                         </li>
                         <li>
-                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-visa.jpg"  alt="ups"/></a>
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-visa.jpg"  alt="ups"/>
                         </li>
                         <li>
-                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-mc.jpg"  alt="ups"/></a>
+                           <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-mc.jpg"  alt="ups"/>
                         </li>
                         <li>
-                            <a href="#"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-wm.jpg"  alt="ups"/></a>
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/trademark-wm.jpg"  alt="ups"/>
                         </li>
                     </ul> 
                 </div>

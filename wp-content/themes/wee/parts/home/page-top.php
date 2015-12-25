@@ -4,7 +4,7 @@
             <div class="col-xs-12 col-sm-12 page-top-left">
                 <div class="popular-tabs">
                       <ul class="nav-tab">
-                        <li class="active"><a data-toggle="tab" href="#tab-1">Распродажа</a></li>
+                        <li class="active"><a data-toggle="tab" href="/rasprodaja/">Распродажа</a></li>
                       </ul>
                       <div class="tab-container">
                             <div id="tab-1" class="tab-panel active" style="display: inline-block;">
