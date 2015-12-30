@@ -224,6 +224,11 @@
             return false;
         })
         /* Open menu on mobile */
+
+
+
+
+
         $(document).on('click','.btn-open-mobile',function(){
             var width = $(window).width();
             if(width >1024){
@@ -437,4 +442,17 @@
             $("#main-menu li.dropdown >a").removeAttr('data-toggle');
         }
     }
+
+    var $menu = $("#top-cart");
+
+    $(window).scroll(function(){
+        if ( $(this).scrollTop() > 300 && $menu.hasClass("default") ){
+            $menu.removeClass("default").addClass("fixed");
+        } else if($(this).scrollTop() <= 300 && $menu.hasClass("fixed")) {
+            $menu.removeClass("fixed").addClass("default");
+        }
+    });//scroll
+
+    $menu.hover(function(){$('.cart-block2').css('visibility', 'visible');$('.cart-block2').css('visibility', 'hidden');});
+
 })(jQuery); // End of use strict

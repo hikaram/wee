@@ -31,7 +31,7 @@ get_header( 'shop' ); ?>
 				 *
 				 * @hooked woocommerce_get_sidebar - 10
 				 */
-				do_action( 'woocommerce_sidebar' );
+				//do_action( 'woocommerce_sidebar' );
 			?>
 			<div id="center_column" class="center_column col-xs-12 col-sm-9">
                 <!-- category-slider -->

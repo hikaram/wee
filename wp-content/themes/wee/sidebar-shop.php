@@ -233,7 +233,7 @@ $args2 = array(
                 </div>
                 <!-- ./filter color -->
                 <!-- ./filter brand -->
-             <!--   <div class="layered_subtitle">brand</div>
+               <div class="layered_subtitle">brand</div>
                 <div class="layered-content filter-brand">
                     <ul class="check-box-list">
                         <li>
@@ -275,7 +275,7 @@ $args2 = array(
                 </div>
                 <!-- ./filter brand -->
                 <!-- ./filter size -->
-           <!--     <div class="layered_subtitle">Size</div>
+               <div class="layered_subtitle">Size</div>
                 <div class="layered-content filter-size">
                     <ul class="check-box-list">
                         <li>
@@ -405,7 +405,7 @@ $args2 = array(
     </div>-->
     <!-- ./SPECIAL -->
     <!-- TAGS -->
-   <!-- <div class="block left-module">
+   <div class="block left-module">
         <p class="title_block">TAGS</p>
         <div class="block_content">
             <div class="tags">
@@ -431,7 +431,7 @@ $args2 = array(
                 <a href="#"><span class="level5">spanegs</span></a>
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- ./TAGS -->
     <!-- Testimonials -->
    <!-- <div class="block left-module">

@@ -812,16 +812,16 @@ if( ! function_exists('kt_show_product_meta') ){
         
         $availability = "";
         
-        if ( $product->is_in_stock() ) $availability   = esc_attr__('In stock', 'kutetheme');
-        if ( ! $product->is_in_stock() ) $availability = esc_attr__('Out of stock', 'kutetheme');
+        if ( $product->is_in_stock() ) $availability   = esc_attr__('В наличии', 'kutetheme');
+        if ( ! $product->is_in_stock() ) $availability = esc_attr__('Нет в наличии', 'kutetheme');
         
         ?>
         <div class="product-meta">
             <?php if( $sku ):?>
-                <p><?php esc_html_e( 'Item Code', 'kutetheme' );?>: #<?php echo esc_attr( $sku ) ;?></p>
+                <p><?php esc_html_e( 'Код', 'kutetheme' );?>: #<?php echo esc_attr( $sku ) ;?></p>
             <?php endif;?>
             <?php if( $availability ):?>
-                <p><?php esc_html_e( 'Availability', 'kutetheme' );?>: <?php echo esc_attr( $availability ) ;?></p>
+                <p><?php esc_html_e( 'Доступность', 'kutetheme' );?>: <?php echo esc_attr( $availability ) ;?></p>
             <?php endif;?>
         </div>
         <?php
@@ -863,8 +863,8 @@ if( ! function_exists( 'kt_utilities_single_product' ) ){
         ?>
         <div class="utilities">
             <ul>
-                <li><a href="javascript:print();"><i class="fa fa-print"></i> <?php esc_html_e( 'Print', 'kutetheme' );?></a></li>
-                <li><a href="<?php echo esc_url('mailto:?subject='. esc_html( get_the_title() ) );?>"><i class="fa fa-envelope-o"></i> <?php esc_html_e( 'Send to a friend', 'kutetheme' );?></a></li>
+                <li><a href="javascript:print();"><i class="fa fa-print"></i> <?php esc_html_e( 'Печать', 'kutetheme' );?></a></li>
+                <li><a href="<?php echo esc_url('mailto:?subject='. esc_html( get_the_title() ) );?>"><i class="fa fa-envelope-o"></i> <?php esc_html_e( 'Отправить', 'kutetheme' );?></a></li>
             </ul>
         </div>
         <?php

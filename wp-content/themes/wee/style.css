@@ -6,3 +6,26 @@ Author URI: http://citycouponsupport.ru
 Version: 1.0
 */
 @import url('assets/css/style.css');
+
+.woocommerce .widget_price_filter .price_slider_amount button {
+    display: block !important;
+}
+
+
+.price_slider_amount > input {
+    border: 1px solid;
+    height: 25px;
+    width: 30%;
+}
+
+.category-featured .nav .active .tab{
+    display: none;
+
+}.category-featured .nav .active .link{
+    display: block;
+
+}
+.category-featured .nav .link{
+    display: none;
+
+}
