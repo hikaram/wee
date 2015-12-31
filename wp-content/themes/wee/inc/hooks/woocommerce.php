@@ -218,7 +218,7 @@ function kt_get_rating_html($rating_html, $rating){
         $rating = $product->get_average_rating();
     }
     //if($rating <=0) return'';
-    $rating_html  = '<div class="product-star" title="' . sprintf( esc_attr__( 'Rated %s out of 5', 'kutetheme' ), $rating > 0 ? $rating : 0  ) . '">';
+  /* $rating_html  = '<div class="product-star" title="' . sprintf( esc_attr__( 'Rated %s out of 5', 'kutetheme' ), $rating > 0 ? $rating : 0  ) . '">';
     for($i = 1;$i <= 5 ;$i++){
         if($rating >= $i){
             if( ( $rating - $i ) > 0 && ( $rating - $i ) < 1 ){
@@ -230,7 +230,7 @@ function kt_get_rating_html($rating_html, $rating){
             $rating_html .= '<i class="fa fa-star-o"></i>';
         }
     }
-    $rating_html .= '</div>';
+    $rating_html .= '</div>';*/
     return $rating_html;
 }
 
@@ -771,9 +771,7 @@ if( ! function_exists( 'custom_woocommerce_page_title' ) ){
         if(isset($_SESSION['shop_products_layout'])){
             $shop_products_layout = $_SESSION['shop_products_layout'];
         }
-        ob_start();
         ?>
-        <span><?php echo esc_html( $page_title ); ?></span>
         <div class="display-product-option">
             <ul>
                 <li class="view-as-grid <?php if( $shop_products_layout == "grid" ) echo esc_attr( 'selected' );?>">
@@ -783,23 +781,31 @@ if( ! function_exists( 'custom_woocommerce_page_title' ) ){
                     <span><?php esc_html_e( 'list', 'kutetheme' );?></span>
                 </li>
             </ul>
-            <?php 
-                if(  function_exists( 'woocommerce_catalog_ordering' ) ){
-                    woocommerce_catalog_ordering();
-                }
-                
-                if( function_exists( 'woocommerce_result_count' ) ){
-                    woocommerce_result_count();
-                } 
+            <?php
+            if(  function_exists( 'woocommerce_catalog_ordering' ) ){
+                woocommerce_catalog_ordering();
+            }
+
+            if( function_exists( 'woocommerce_result_count' ) ){
+                woocommerce_result_count();
+            }
             ?>
         </div>
+        <?
+        ob_start();
+        ?>
+        <span><?php echo esc_html( $page_title ); ?></span>
+
         <?php
         $page_title = ob_get_contents();
         ob_clean();
+
         return  $page_title ;
-        
+
     }
 }
+
+
 
 // Product meta
 remove_action( 'woocommerce_single_product_summary','woocommerce_template_single_meta', 40 );
@@ -1289,7 +1295,7 @@ if( ! function_exists( 'kt_get_social_footer' )){
 }
 // Custom rating review
 
-if( !function_exists( 'kt_review_rating_html' ) ){
+/*if( !function_exists( 'kt_review_rating_html' ) ){
     function kt_review_rating_html( $rating ){
         $rating_html = '';
         if($rating <=0) return '';
@@ -1318,7 +1324,7 @@ if( !function_exists( 'kt_review_rating_html' ) ){
         );
         return wp_kses( $rating_html, $allowed_html );
     }
-}
+}*/
 
 
 // Get max date sale 

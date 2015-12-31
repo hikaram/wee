@@ -446,10 +446,14 @@
     var $menu = $("#top-cart");
 
     $(window).scroll(function(){
-        if ( $(this).scrollTop() > 300 && $menu.hasClass("default") ){
+        if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
             $menu.removeClass("default").addClass("fixed");
-        } else if($(this).scrollTop() <= 300 && $menu.hasClass("fixed")) {
+            $('#box-vertical-megamenus').css('display','none');
+            $('#cart-block').removeClass("default-cart-block").addClass("fixed-cart-block");
+        } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
             $menu.removeClass("fixed").addClass("default");
+            $('#box-vertical-megamenus').css('display','block');
+            $('#cart-block').removeClass("fixed-cart-block").addClass("default-cart-block");
         }
     });//scroll
 

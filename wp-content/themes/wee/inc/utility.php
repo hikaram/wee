@@ -370,8 +370,8 @@ function kt_paging_nav() {
 	}
     
     echo get_the_posts_pagination( array(
-        'prev_text'          => sprintf( '<i class="fa fa-angle-double-left"></i> %1$s', esc_attr__( 'Previous', 'kutetheme' ) ),
-        'next_text'          => sprintf( '%1$s <i class="fa fa-angle-double-right"></i>', esc_attr__( 'Next', 'kutetheme' ) ),
+        'prev_text'          => sprintf( '<i class="fa fa-angle-double-left"></i> %1$s', esc_attr__( 'Назад', 'kutetheme' ) ),
+        'next_text'          => sprintf( '%1$s <i class="fa fa-angle-double-right"></i>', esc_attr__( 'Вперед', 'kutetheme' ) ),
         'screen_reader_text' => '&nbsp;',
         'before_page_number' => '',
     ) );

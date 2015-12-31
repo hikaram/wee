@@ -47,13 +47,13 @@
                 </div>
                 <div class="col-md-3">
                     <div id="contact-box">
-                        <div class="introduce-title">Подписка на скидки</div>
-                        <div class="input-group" id="mail-box">
-                          <input type="text" placeholder="Ваш Email"/>
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">OK</button>
-                          </span>
-                        </div><!-- /input-group -->
+                        <!--   <div class="introduce-title">Подписка на скидки</div>
+                           <div class="input-group" id="mail-box">
+                             <input type="text" placeholder="Ваш Email"/>
+                             <span class="input-group-btn">
+                               <button class="btn btn-default" type="button">OK</button>
+                             </span>
+                           </div>-->
                         <div class="introduce-title">Мы в соц. сетях</div>
                         <div class="social-link">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -157,5 +157,24 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/theme-script.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/script.js"></script>
 <?php wp_footer(); ?>
+
+<!-- CarrotQuest BEGIN -->
+<script type="text/javascript">
+    (function(){
+        if (typeof carrotquest === 'undefined') {
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = '//cdn.carrotquest.io/api.min.js';
+            var x = document.getElementsByTagName('head')[0]; x.appendChild(s);
+
+            carrotquest = {}; window.carrotquestasync = []; carrotquest.settings = {};
+            m = ['connect', 'track', 'identify', 'auth'];
+            function Build(name, args){return function(){window.carrotquestasync.push(name, arguments);} }
+            for (var i = 0; i < m.length; i++) carrotquest[m[i]] = Build(m[i]);
+        }
+    })();
+    carrotquest.connect('2645-5efcb529bc4a6bbe8c9d86afca4');
+</script>
+<!-- CarrotQuest END -->
+
 </body>
 </html>
