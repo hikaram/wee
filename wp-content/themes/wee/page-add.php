@@ -103,7 +103,7 @@ get_header(); ?>
                                 <h2><?php echo 'В вашей корзине '.WC()->cart->get_cart_contents_count().' товар(ов). На сумму '.WC()->cart->get_cart_total();  ?> </h2>
 
                                 <?php echo '<a href="' . esc_url( WC()->cart->get_checkout_url() ) . '" class="checkout-button button alt wc-forward" style="display: inline-block !important;">' . __( 'Proceed to Checkout', 'woocommerce' ) . '</a>'; ?>
-                                &nbsp;&nbsp;<a style="display: inline-block; margin-top: 10px;" href="/cart/">Перейти в корзину</a>&nbsp;&nbsp;
+                                <!--&nbsp;&nbsp;<a style="display: inline-block; margin-top: 10px;" href="/cart/">Перейти в корзину</a>-->&nbsp;&nbsp;
                                 <a style="display: inline-block; margin-top: 10px;" href="/">Продолжить покупки</a>
                             </div>
                         </div>

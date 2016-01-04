@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</label>
 			</p>
 			<p class="lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Забыли пароль?', 'woocommerce' ); ?></a>
 			</p>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
 				<p class="form-row form-row-wide">
-					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
+					<label for="reg_password"><?php _e( 'Пароль', 'woocommerce' ); ?> <span class="required">*</span></label>
 					<input type="password" class="input-text" name="password" id="reg_password" />
 				</p>
 

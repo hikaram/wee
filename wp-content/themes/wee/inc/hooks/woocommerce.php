@@ -384,7 +384,7 @@ if( ! function_exists('kt_get_cart_content') ){
         if ( ! WC()->cart->is_empty() ) : ?>
             <div class="cart-block">
                 <div class="cart-block-content">
-                    <h5 class="cart-title"><?php echo sprintf (_n( '%d item in my cart', '%d items in my cart', WC()->cart->cart_contents_count, 'kutetheme' ), WC()->cart->cart_contents_count ); ?></h5>
+                    <h5 class="cart-title"><?php echo sprintf (_n( '%d шт в корзине', '%d шт в корзине', WC()->cart->cart_contents_count, 'kutetheme' ), WC()->cart->cart_contents_count ); ?></h5>
                     <div class="cart-block-list">
                         <ul>
                             <?php 
@@ -424,7 +424,7 @@ if( ! function_exists('kt_get_cart_content') ){
                                             );
                                             ?>
                                             <p class="p-rice"><?php echo  wp_kses( $product_price, $allowed_html )  ?></p>
-                                            <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<p class="quantity">' . sprintf( esc_attr__('Qty: ', 'kutetheme').esc_attr__('%s', 'kutetheme'), $cart_item['quantity'] ) . '</p>', $cart_item, $cart_item_key ); ?>
+                                            <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<p class="quantity">' . sprintf( esc_attr__('Кол-во : ', 'kutetheme').esc_attr__('%s', 'kutetheme'), $cart_item['quantity'] ) . '</p>', $cart_item, $cart_item_key ); ?>
                                         </div>
                                     </li>
                                 <?php endif; ?>
@@ -432,14 +432,14 @@ if( ! function_exists('kt_get_cart_content') ){
                         </ul>
                     </div>
                     <div class="toal-cart">
-                        <span><?php esc_html_e( 'Total', 'kutetheme' ) ?></span>
+                        <span><?php esc_html_e( 'Всего', 'kutetheme' ) ?></span>
                         <span class="toal-price pull-right">
                             <?php echo WC()->cart->get_cart_total() ?>
                         </span>
                     </div>
-                    <div class="cart-buttons">
-                        <a href="<?php echo esc_url( $check_out_url ); ?>" class="btn-check-out"><?php echo esc_html_e( 'Checkout', 'kutetheme' ); ?></a>
-                    </div>
+                   <!-- <div class="cart-buttons">
+                        <a href="<?php //echo esc_url( $check_out_url ); ?>" class="btn-check-out"><?php //echo esc_html_e( 'Checkout', 'kutetheme' ); ?></a>
+                    </div>-->
                 </div>
             </div>
         <?php endif;

@@ -5741,7 +5741,8 @@ small.count {
     padding: 10px;
     width: 370px !important;
 }
-.ubermenu-nav li:first-child a {width: 140%;}
+.ubermenu-nav li:first-child a {/*width: 140%;*/}
+#box-vertical-megamenus {width: 15.967% !important;}
 .fixed-cart-block {
     background: #fff none repeat scroll 0 0;
     position: fixed;
@@ -5755,4 +5756,10 @@ small.count {
 .next .fa-angle-double-right,
 .prev .fa-angle-double-left{
     margin: 3px 2px 0 2px;
+}
+.top-header .dropdown.open > .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: inherit;
+    z-index: 2;
 }

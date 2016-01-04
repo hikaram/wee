@@ -154,6 +154,8 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/owl.carousel/owl.carousel.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/jquery.actual.min.js"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/dropdown.js"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/functions.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/theme-script.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/script.js"></script>
 <?php wp_footer(); ?>

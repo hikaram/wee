@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <form method="post" class="wc-auth-login">
 	<p class="form-row form-row-wide">
-		<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
+		<label for="username"><?php _e( 'Имя пользователя or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
 		<input type="text" class="input-text" name="username" id="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
 	</p>
 	<p class="form-row form-row-wide">

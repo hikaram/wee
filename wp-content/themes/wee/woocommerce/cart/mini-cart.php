@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div id="cart-block" class="shopping-cart-box col-xs-5 col-sm-5 col-md-2">
         <a class="cart-link" href="<?php echo esc_url( $check_out_url ); ?>">
             <span class="title"><?php esc_html_e( 'Корзина', 'woocommerce' ); ?></span>
-            <span class="total"><?php echo sprintf ( _n( '%d шт', '%d шт', esc_attr( $cart_count ), 'woocommerce' ), esc_attr( $cart_count ) ) ?></span>
+            <span class="total"><?php echo sprintf ( _n( '%d шт', '%d шт', esc_attr( $cart_count ), '' ), esc_attr( $cart_count ) ) ?></span>
             <span><?php esc_html_e( '-', 'kutetheme' ); ?></span> 
             <?php echo WC()->cart->get_cart_total() ?>
             <span class="notify notify-left"><?php echo esc_attr( $cart_count ); ?></span>
