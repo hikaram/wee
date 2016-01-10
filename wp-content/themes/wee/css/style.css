@@ -914,7 +914,7 @@ img.alignright{
     margin-top: 2px;
 }
 
-.main-header .shopping-cart-box a.cart-link:after{
+/*.main-header .shopping-cart-box a.cart-link:after{
     content: '';
     width: 41px;
     height: 41px;
@@ -922,7 +922,7 @@ img.alignright{
     position: absolute;
     top: -1px;
     right: -1px;
-}
+}*/
 .cart-block{
   position: absolute;
   top: 100%;

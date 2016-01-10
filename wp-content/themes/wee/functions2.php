@@ -605,3 +605,18 @@ function wee_popular_posts($num) {
         }
     }
 }
+
+
+
+register_sidebar(
+  array(
+    'id' => 'search',
+    'name' => __( 'search' ),
+    'description' => __( 'Поиск' ),
+    'before_widget' => '<div id="%1$s" class="topCart %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="my_widget-title">',
+    'after_title' => '</h4>'
+    )
+   );
+  

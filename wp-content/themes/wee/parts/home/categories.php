@@ -220,11 +220,11 @@ if ($all_categories) {
                                                     <div class="content_price">
                                                         <del>
                                                             <span
-                                                                class="amount"><?php print($price . "&nbsp;руб."); ?></span>
+                                                                class="amount"><?php print($price . "&nbsp;&#8381;."); ?></span>
                                                         </del>
                                                         <ins style="text-decoration:none;">
                                                             <span
-                                                                class="amount"><?php print($sale . "&nbsp;руб."); ?></span>
+                                                                class="amount"><?php print($sale . "&nbsp;&#8381;."); ?></span>
                                                         </ins>
                                                     </div>
                                                     <?php /*<div class="product-star">

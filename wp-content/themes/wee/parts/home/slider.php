@@ -2,8 +2,8 @@
 <div id="home-slider">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 slider-left"></div>
-            <div class="col-sm-9 header-top-right">
+            
+            <div class="col-sm-9">
                 <div class="homeslider">
                     <?php if( have_rows('slides', 11) ): ?>
                     <div class="content-slide">
@@ -20,6 +20,42 @@
                     <?php endif; ?>
                 </div>
             </div>
+            
+            
+              <div class="col-xs-12 col-sm-3 page-top-right">
+                  <br />
+                <div class="latest-deals">
+                <div class="latest-deal-title">Товар дня</div>
+                <div class="latest-deal-content">
+                <ul data-responsive="{&quot;0&quot;:{&quot;items&quot;:1},&quot;600&quot;:{&quot;items&quot;:3},&quot;1000&quot;:{&quot;items&quot;:1}}" data-autoplayhoverpause="true" data-autoplaytimeout="1000" data-nav="true" data-loop="true" data-dots="false" class="product-list owl-carousel1">
+                
+                        <li>
+                            <div data-countdown="2015/12/27" class="count-down-time"><span>00</span><b></b><span>00</span><b></b><span>00</span></div>
+                             <div class="left-block hAlign">
+                                <table width="100%">
+                                    <tbody><tr><td align="center">
+                                    <a href="#" class="vAlign">
+
+                                        <img width="300" height="270" alt="16035.jpg" class="attachment-post-thumbnail wp-post-image" src="http://wee.citycouponsupport.ru/wp-content/uploads/2015/10/16035-300x270.jpg">                                                   
+                                    </a>
+                                    </td></tr>
+                                </tbody></table>
+                                </div>
+                            <div class="right-block">
+                                <div class="product-name"><a href="#">Стеклянный анальный стимулятор ICICLES № 14</a></div>
+                                <div class="content_price">
+                                    <span class="price product-price">3 466 <strong>&#8381;.</strong></span>                                    
+                                </div>
+                                <a class=" rs_rs_addtocart  product_type_simple" data-quantity="1" data-product_sku="Стеклянный анальный стимулятор ICICLES № 14" data-product_id="44553" rel="nofollow" href="/cart/"><span></span>В корзину</a>                                
+                            </div>
+                        </li>                                                                                                                                                
+                            
+                   </ul>                                 
+                </div>
+            </div>
+            </div>
+            
+            
         </div>
     </div>
 </div>

@@ -311,6 +311,18 @@
      Scripts scroll
      --------------------------------------------- */
     $(window).scroll(function(){
+        
+        var $menu = $("#tophead");
+        if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
+            $menu.removeClass("default").addClass("fixed");
+            $('#box-vertical-megamenus').css('display','none');
+            //$('#cart-block').removeClass("default-cart-block").addClass("fixed-cart-block");
+        } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+            $menu.removeClass("fixed").addClass("default");
+            $('#box-vertical-megamenus').css('display','block');
+           // $('#cart-block').removeClass("fixed-cart-block").addClass("default-cart-block");
+        }
+        
         resizeTopmenu();
         /* Show hide scrolltop button */
         if( $(window).scrollTop() == 0 ) {
@@ -319,13 +331,13 @@
             $('.scroll_top').stop(false,true).fadeIn(600);
         }
         /* Main menu on top */
-        var h = $(window).scrollTop();
+       var h = $(window).scrollTop();
         var max_h = $('#header').height() + $('#top-banner').height();
         var width = $(window).width();
-        if(width > 767){
+       /*  if(width > 767){
             if( h > (max_h + vertical_menu_height)-50){
                 // fix top menu
-                $('#nav-top-menu').addClass('nav-ontop');
+                $('#tophead').addClass('nav-ontop');
                 //$('#nav-top-menu').find('.vertical-menu-content').hide();
                 //$('#nav-top-menu').find('.title').removeClass('active');
                 // add cart box on top menu
@@ -334,7 +346,7 @@
                 $('#user-info-top').appendTo('#user-info-opntop');
                 $('#header .header-search-box form').appendTo('#form-search-opntop');
             }else{
-                $('#nav-top-menu').removeClass('nav-ontop');
+                $('#tophead').removeClass('nav-ontop');
                 if($('body').hasClass('home')){
                     $('#nav-top-menu').find('.vertical-menu-content').removeAttr('style');
                     if(width > 1024)
@@ -354,7 +366,7 @@
                 $('#user-info-opntop #user-info-top').appendTo('.top-header .container');
                 $('#form-search-opntop form').appendTo('#header .header-search-box');
             }
-        }
+        }*/
     });
     var vertical_menu_height = $('#box-vertical-megamenus .box-vertical-megamenus').innerHeight();
     /**==============================
@@ -443,20 +455,7 @@
         }
     }
 
-    var $menu = $("#top-cart");
 
-    $(window).scroll(function(){
-        if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
-            $menu.removeClass("default").addClass("fixed");
-            $('#box-vertical-megamenus').css('display','none');
-            $('#cart-block').removeClass("default-cart-block").addClass("fixed-cart-block");
-        } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
-            $menu.removeClass("fixed").addClass("default");
-            $('#box-vertical-megamenus').css('display','block');
-            $('#cart-block').removeClass("fixed-cart-block").addClass("default-cart-block");
-        }
-    });//scroll
-
-    $menu.hover(function(){$('.cart-block2').css('visibility', 'visible');$('.cart-block2').css('visibility', 'hidden');});
+    //$menu.hover(function(){$('.cart-block2').css('visibility', 'visible');$('.cart-block2').css('visibility', 'hidden');});
 
 })(jQuery); // End of use strict

@@ -146,7 +146,8 @@
 </footer>
 
 <a href="#" class="scroll_top" title="Перемотать вверх">Вверх</a>
-<!-- Script-->
+    
+    <!-- Script-->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/select2/js/select2.min.js"></script>
@@ -155,9 +156,58 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/jquery.actual.min.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/dropdown.js"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/jquery.jcarousellite.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/functions.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/theme-script.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/script.js"></script>
+<script>
+ /*$(document).ready(function() {
+        
+       
+           
+    console.log( "ready!" );
+    });*/
+    $(window).load(function() {
+ // executes when complete page is fully loaded, including all frames, objects and images
+  $('#contenhomeslider').bxSlider(
+                {
+                    nextText:'<i class="fa fa-angle-right"></i>',
+                    prevText:'<i class="fa fa-angle-left"></i>',
+                    auto: true
+                }
+
+            );
+   /* $(".cart-block .cart-block-list").jCarouselLite({
+    btnNext: ".cart-block .down",
+    btnPrev: ".cart-block .up",
+    vertical: true,
+    visible: 1,
+    auto: 5000,
+    speed: 500,
+    circular: false
+ });*/
+ 
+ /*$("#topcarousel .carousel-indicators li:first").addClass("active");*/
+ $("#topcarousel .carousel-inner .item:first").addClass("active");
+ $("#topcarousel").carousel({
+ interval: 4000
+ })
+ 
+ $('.btn-vertical-slider').on('click', function () {
+     
+            if ($(this).attr('data-slide') == 'next') {
+                $('#topcarousel').carousel('next');
+            }
+            if ($(this).attr('data-slide') == 'prev') {
+                $('#topcarousel').carousel('prev');
+            }
+     
+        });
+ 
+});
+</script>
+
+
 <?php wp_footer(); ?>
 
 <!-- CarrotQuest BEGIN -->

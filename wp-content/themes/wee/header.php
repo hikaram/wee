@@ -43,12 +43,12 @@
         <div class="container">
             <?php echo kt_get_hotline(); ?>
             <?php echo kt_get_wpml(); ?>
-            
-            <div class="support-link">
-                <a href="/login/">Вход</a>
-                <a href="/signup/">Помощь</a>
+              <?php echo kt_menu_my_account(); ?>
+            <div class="support-link">                
+                <a href="/help/">Помощь</a>
+                <a href="tel:+74957777777">+7(495)777-77-77</a>
             </div>
-            <?php echo kt_menu_my_account(); ?>
+          
             
             <!--<div id="user-info-top" class="user-info pull-right">
                 <div class="dropdown">
@@ -64,22 +64,26 @@
     </div>
     <!--/.top-header -->
     <!-- MAIN HEADER -->
-    <div class="container main-header">
+    <div id="tophead" class="default">
+    <div class="container main-header default">
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
-                    <img alt="<?php bloginfo('name'); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logowee.png" />
-                    <br /><span class="logofont">интим товары для ярких эмоций</span>
+                    <img alt="WEEWOW: удобный магазин интим товаров" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logowee.png" />
+                  <!--  <br /><span class="logofont">интим товары для ярких эмоций</span>-->
                 </a>
             </div>
 
             <div class="col-xs-5 col-sm-7 header-search-box">
-                <form class="form-inline" role="search" method="get" id="searchform" action="/">
+             <!--  <form class="form-inline" role="search" method="get" id="searchform" action="/">
                       <div class="form-group input-serach">
                         <input type="text"  placeholder="Начинайте вводить..." name="s" id="s" />
                       </div>
                       <button id="searchsubmit" type="submit" class="pull-right btn-search"></button>
-                </form>
+                </form>-->
+                <?php //echo do_shortcode("[wpdreams_ajaxsearchpro id=1]"); ?>
+                <?php dynamic_sidebar('search');?> 
+                 <?php  //echo do_shortcode('[yith_woocommerce_ajax_search]'); ?> 
             </div>
             <?php 
                 if( kt_is_wc() ): 
@@ -108,15 +112,33 @@
                 </div>
 
             </div>-->
+            
         </div>
+          
+                     
+                <div id="top-menu">
+                   
+                    <?php ubermenu( 'top' ); ?>
+                    <!--<ul>
+                        <li><a class="tmenu-icon1" href="/category/seks-igrushki/">Секс игрушки</a></li>
+                        <li><a class="tmenu-icon2" href="#">Фетиш и BDSM</a></li>
+                        <li><a class="tmenu-icon3" href="#">Эротическое бельё</a></li>
+                        <li><a class="tmenu-icon4" href="/category/intimnaya-kosmetika/">Интимная косметика</a></li>
+                        <li><a class="tmenu-icon5" href="/category/priyatnye-melochi/">Приятные мелочи</a></li>
+                        <li><a class="tmenu-icon6" href="#">Скидки</a></li>
+                    </ul>-->
+                </div>
     </div>
+   </div>
   
     <!-- END MANIN HEADER -->
     <div id="nav-top-menu" class="nav-top-menu">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3" id="box-vertical-megamenus">
+                    
                     <?php ubermenu( 'main' , array( 'theme_location' => 'vertical' ) ); ?>
+                    
                     <div class="box-vertical-megamenus">
                         <!--   <h4 class="title">
                              <span class="title-menu"><a href="/shop/">Каталог товаров</a></span>
@@ -196,6 +218,8 @@
                     ?>
 
                     </div>-->
+                
+                  
                 </div>
 
                 </div>
@@ -226,7 +250,7 @@ $bcs = "";
                     </nav>
                 </div>
                 <script>
-                    $(document).ready(function(){
+                  /*  $(document).ready(function(){
 
                         var $menu = $("#top-cart");
 
@@ -239,16 +263,11 @@ $bcs = "";
                         });//scroll
 
                         $menu.hover(function(){$('.cart-block2').css('visibility', 'visible');$('.cart-block2').css('visibility', 'hidden');});
-                    });
+                    });*/
                 </script>
-                <div style="float: right"><div id="top-cart" class="headcart-link default">
-
-                    </div>
-
-
-
-
-                </div>
+                <!--<div style="float: right"><div id="top-cart" class="headcart-link default"></div></div>-->
+             
+                
             </div>
       
         </div>

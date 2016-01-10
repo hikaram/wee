@@ -382,11 +382,37 @@ add_action( 'kt_mini_cart_content', 'kt_get_cart_content', 10, 1 );
 if( ! function_exists('kt_get_cart_content') ){
     function kt_get_cart_content($check_out_url){
         if ( ! WC()->cart->is_empty() ) : ?>
+
+
+
             <div class="cart-block">
                 <div class="cart-block-content">
                     <h5 class="cart-title"><?php echo sprintf (_n( '%d шт в корзине', '%d шт в корзине', WC()->cart->cart_contents_count, 'kutetheme' ), WC()->cart->cart_contents_count ); ?></h5>
-                    <div class="cart-block-list">
-                        <ul>
+                    <a href="#" class="up"></a>
+                   
+                            <div class="cart-block-list">
+                                
+                                
+                                
+                                  
+	<div class="row"> <div class="col-xs-8 col-sm-6 col-md-6">
+		
+                <div id="topcarousel" class="vertical-slider carousel vertical slide col-md-12" data-ride="carousel">
+            <div class="row">
+                <div class="col-md-4">
+                    <span data-slide="next" class="btn-vertical-slider glyphicon glyphicon-circle-arrow-up "
+                        style="font-size: 30px"></span>  
+                </div>
+                <div class="col-md-8"> 
+                </div>
+            </div>
+            <br />
+            <!-- Carousel items -->
+            
+            
+            <div class="carousel-inner">
+                
+                 
                             <?php 
                             foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
                                 $bag_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
@@ -398,7 +424,9 @@ if( ! function_exists('kt_get_cart_content') ){
                 					$thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $bag_product->get_image('shop_thumbnail'), $cart_item, $cart_item_key );
                 					$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $bag_product ), $cart_item, $cart_item_key );
                                     ?>
-                                    <li class="<?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item product-info', $cart_item, $cart_item_key ) ); ?>">
+                <div class="item">
+                                    <div class="item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item product-info', $cart_item, $cart_item_key ) ); ?>">
+                                        <div class="row">
                                         <div class="p-left">
                                             <?php
                     						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
@@ -426,11 +454,74 @@ if( ! function_exists('kt_get_cart_content') ){
                                             <p class="p-rice"><?php echo  wp_kses( $product_price, $allowed_html )  ?></p>
                                             <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<p class="quantity">' . sprintf( esc_attr__('Кол-во : ', 'kutetheme').esc_attr__('%s', 'kutetheme'), $cart_item['quantity'] ) . '</p>', $cart_item, $cart_item_key ); ?>
                                         </div>
-                                    </li>
+                                            </div>
+                                    </div>  </div>
                                 <?php endif; ?>
                         <?php endforeach; ?>
-                        </ul>
+                        
+                
+            <?php /*    <div class="item active">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-5 col-md-5">
+                            <a href="http://dotstrap.com/"> <img src="http://placehold.it/150x150" class="thumbnail"
+                                alt="Image" /></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-7 col-md-7">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            euismod tincidunt ut laoreet..
+                        </div>
                     </div>
+                    <!--/row-fluid-->
+                </div>
+                <!--/item-->
+                <div class="item ">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-5 col-md-5">
+                            <a href="http://dotstrap.com/"> <img src="http://placehold.it/150x150" class="thumbnail"
+                                alt="Image" /></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-7 col-md-7">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            euismod tincidunt ut laoreet..
+                        </div>
+                    </div>
+                    <!--/row-fluid-->
+                </div> */ ?>
+               
+                <!--/item-->
+            
+            </div>
+          
+            <div class="row">
+                
+                <div class="col-md-4">
+                    <span data-slide="prev" class="btn-vertical-slider glyphicon glyphicon-circle-arrow-down"
+                        style="color: Black; font-size: 30px"></span>
+                </div>
+                <div class="col-md-8">
+                </div>
+            </div>
+        </div>
+</div>
+	</div>
+
+                                
+                          
+                     
+                     
+                        
+                         
+                        
+                          
+                        
+            </div>
+     
+                   
+                     
+                        
+                    </div>
+                    <a href="#" class="down"></a>
+                    
                     <div class="toal-cart">
                         <span><?php esc_html_e( 'Всего', 'kutetheme' ) ?></span>
                         <span class="toal-price pull-right">

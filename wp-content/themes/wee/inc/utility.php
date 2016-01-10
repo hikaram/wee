@@ -231,21 +231,21 @@ if( ! function_exists('kt_menu_my_account')){
         <div id="user-info-top" class="user-info pull-right">
             <div class="dropdown">
                 <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                    <span><?php esc_html_e( 'My Account', 'kutetheme' ) ?></span>
+                    <span><?php esc_html_e( 'Аккаунт', 'kutetheme' ) ?></span>
                 </a>
                 <ul class="dropdown-menu mega_dropdown" role="menu">
                     <?php if ( ! is_user_logged_in() ):  ?>
                         <?php if( kt_is_wc() ): 
                                 $url = get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>
-                            <li><a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Login / Register', 'kutetheme' ) ?>"><?php esc_html_e('Login / Register', 'kutetheme'); ?></a></li>
+                            <li><a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Вход / Регистрация', 'kutetheme' ) ?>"><?php esc_html_e('Вход / Регистрация', 'kutetheme'); ?></a></li>
                         <?php else: 
                             $url = wp_login_url();
                             $url_register = wp_registration_url(); ?>
-                            <li><a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Login', 'kutetheme' ) ?>"><?php esc_html_e( 'Login', 'kutetheme' ) ?></a></li>
-                            <li><a href="<?php echo esc_url( $url_register ); ?>" title="<?php esc_html_e( 'Register', 'kutetheme' ); ?>"><?php esc_html_e( 'Register', 'kutetheme' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Login', 'kutetheme' ) ?>"><?php esc_html_e( 'Вход', 'kutetheme' ) ?></a></li>
+                            <li><a href="<?php echo esc_url( $url_register ); ?>" title="<?php esc_html_e( 'Register', 'kutetheme' ); ?>"><?php esc_html_e( 'Регистрация', 'kutetheme' ); ?></a></li>
                         <?php endif; ?>
                     <?php else: ?>
-                        <li><a href="<?php echo esc_url( wp_logout_url() ); ?>"><?php esc_html_e( 'Logout', 'kutetheme' ) ?></a></li>
+                        <li><a href="<?php echo esc_url( wp_logout_url() ); ?>"><?php esc_html_e( 'Выход', 'kutetheme' ) ?></a></li>
                         <?php if( function_exists( 'YITH_WCWL' ) ):
                             $wishlist_url = YITH_WCWL()->get_wishlist_url(); ?>
                             <li><a href="<?php echo esc_url( $wishlist_url ); ?>"><?php esc_html_e( 'Wishlists', 'kutetheme' ) ?></a></li>

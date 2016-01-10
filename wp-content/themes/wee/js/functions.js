@@ -580,7 +580,7 @@
             $('.scroll_top').stop(false,true).fadeIn(600);
         }
         /* Main menu on top */
-        var h = $(window).scrollTop();
+     /*   var h = $(window).scrollTop();
         var max_h = $('#header').height() + $('#top-banner').height();
         var width = $(window).width();
         if(width > 767){
@@ -612,7 +612,7 @@
                 $('#user-info-opntop #user-info-top').appendTo('.top-header .container');
                 $('#form-search-opntop form').appendTo('#header .header-search-box');
             }
-        }
+        }*/
     });
     var vertical_menu_height = $('#box-vertical-megamenus .box-vertical-megamenus').innerHeight();
     /**==============================
