@@ -231,13 +231,24 @@ if( ! function_exists('kt_menu_my_account')){
         <div id="user-info-top" class="user-info pull-right">
             <div class="dropdown">
                 <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                    <span><?php esc_html_e( 'Аккаунт', 'kutetheme' ) ?></span>
+                    <span style="font-weight: bold">
+                          <?php if ( ! is_user_logged_in() ):  ?>
+                         <a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Вход / Регистрация', 'kutetheme' ) ?>"><?php esc_html_e('Вход / Регистрация', 'kutetheme'); ?></a>
+                     
+                         <?php else: ?>
+                         <?php global $current_user;
+                            get_currentuserinfo();
+                            echo '<a href="/my-account/">'.$current_user->user_email.'</a>';
+                            ?>
+                       
+                         <?php endif; ?>
+                    </span>
                 </a>
                 <ul class="dropdown-menu mega_dropdown" role="menu">
                     <?php if ( ! is_user_logged_in() ):  ?>
                         <?php if( kt_is_wc() ): 
                                 $url = get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>
-                            <li><a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Вход / Регистрация', 'kutetheme' ) ?>"><?php esc_html_e('Вход / Регистрация', 'kutetheme'); ?></a></li>
+                            <li><!--<a href="<?php echo esc_url( $url ); ?>" title="<?php esc_html_e( 'Вход / Регистрация', 'kutetheme' ) ?>"><?php //esc_html_e('Вход / Регистрация', 'kutetheme'); ?></a>--></li>
                         <?php else: 
                             $url = wp_login_url();
                             $url_register = wp_registration_url(); ?>

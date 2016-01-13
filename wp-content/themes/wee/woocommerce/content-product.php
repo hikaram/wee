@@ -53,6 +53,7 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
     <div class="product-container">
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
     	<div class="left-block">
+    	  <div class="left-block-inside">
             <a href="<?php echo esc_url( get_permalink() ) ; ?>">
                 <?php
         			/**
@@ -83,6 +84,7 @@ $classes[] = 'col-xs-12 col-sm-'. $bootstrapColumn .' col-md-' . $bootstrapColum
                  */
                 do_action( 'woocommerce_after_shop_loop_item' );
             ?>
+    	    </div>
         </div>
         <div class="right-block">
             <?php

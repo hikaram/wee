@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 .ubermenu-skin-black-white-2.ubermenu-responsive-toggle:hover {
-  background: #111111;
+  
   color: #ffffff;
 }
 .ubermenu-skin-black-white-2 {
@@ -36,7 +36,7 @@
 .ubermenu-skin-black-white-2 .ubermenu-item-level-0.ubermenu-current-menu-parent > .ubermenu-target,
 .ubermenu-skin-black-white-2 .ubermenu-item-level-0.ubermenu-current-menu-ancestor > .ubermenu-target {
   color: #ffffff;
-  background: #000000;
+  
 }
 .ubermenu-skin-black-white-2 .ubermenu-item.ubermenu-item-level-0 > .ubermenu-highlight {
   color: #4d90fe;
@@ -67,7 +67,7 @@
 }
 .ubermenu-skin-black-white-2 .ubermenu-item-level-0:hover > .ubermenu-target,
 .ubermenu-skin-black-white-2 .ubermenu-item-level-0.ubermenu-active > .ubermenu-target {
-  background: #111111;
+  
   color: #ffffff;
 }
 .ubermenu-skin-black-white-2 .ubermenu-item-level-0 > .ubermenu-submenu-type-stack > .ubermenu-item > .ubermenu-target {

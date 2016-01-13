@@ -25,6 +25,37 @@ if ($all_categories) {
         $thumbnail_id = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
         $catimagelink = ($thumbnail_id) ? wp_get_attachment_url($thumbnail_id) : get_stylesheet_directory_uri() . "/assets/data/fashion.png"; // default
         ?>
+
+<!-- Horizontal Banner(s) -->
+<div class="row banner-bottom">
+    <div class="col-sm-6">
+        <div class="banner-boder-zoom">
+                    <?php
+                    $term_meta = get_option("taxonomy_" . $cat->term_id);
+                    ?>
+                    <a href=<?php
+                    $banner = get_stylesheet_directory_uri() . "/assets/data/ads17.jpg";
+                    $bannerlink = "#";
+                    if ((isset($term_meta['leftbanner_meta'])) && ($term_meta['leftbanner_meta'])) $banner = $term_meta['leftbanner_meta'];
+                    if ((isset($term_meta['leftbannerlink_meta'])) && ($term_meta['leftbannerlink_meta'])) $bannerlink = $term_meta['leftbannerlink_meta'];
+                    print("\"" . $bannerlink . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
+                        print("\"" . $banner . "\""); ?>/></a>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="banner-boder-zoom">
+                    <a href=<?php
+                    $banner = get_stylesheet_directory_uri() . "/assets/data/ads18.jpg";
+                    $bannerlink = "#";
+                    if ((isset($term_meta['rightbanner_meta'])) && ($term_meta['rightbanner_meta'])) $banner = $term_meta['rightbanner_meta'];
+                    if ((isset($term_meta['rightbannerlink_meta'])) && ($term_meta['rightbannerlink_meta'])) $bannerlink = $term_meta['rightbannerlink_meta'];
+                    print("\"" . $bannerlink . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
+                        print("\"" . $banner . "\""); ?>/></a>
+        </div>
+    </div>
+</div>
+<!-- end banner bottom -->
+
         <!-- featured category fashion -->
         <div class="category-featured">
             <nav class="navbar nav-menu nav-menu-<?php
@@ -80,7 +111,7 @@ if ($all_categories) {
                             } ?>
                         </ul>
                         <?php if ($iSCPos >= 4) {
-                            ?>
+                            ?><li class="moreMenu"><span>Еще</span></li>
                         <?php } ?>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -91,7 +122,7 @@ if ($all_categories) {
                        <a href="#elevator-2" class="btn-elevator down fa fa-angle-down"></a>
                  </div>-->
             </nav>
-            <div class="category-banner">
+            <?php /*<div class="category-banner">
                 <div class="col-sm-6 banner">
                     <?php
                     $term_meta = get_option("taxonomy_" . $cat->term_id);
@@ -113,7 +144,7 @@ if ($all_categories) {
                     print("\"" . $bannerlink . "\""); ?>><img alt="ads3" class="img-responsive" src=<?php
                         print("\"" . $banner . "\""); ?>/></a>
                 </div>
-            </div>
+            </div> */?>
             <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>Наш выбор</span></div>
@@ -121,8 +152,8 @@ if ($all_categories) {
                         <a href=<?php
                         $banner = get_stylesheet_directory_uri() . "/assets/data/f1.jpg";
                         $bannerlink = "#";
-                        if (isset($term_meta['featuredbanner_meta'])) $banner = $term_meta['featuredbanner_meta'];
-                        if (isset($term_meta['featuredbannerlink_meta'])) $bannerlink = $term_meta['featuredbannerlink_meta'];
+                        if ((isset($term_meta['featuredbanner_meta'])) && ($term_meta['featuredbanner_meta'])) $banner = $term_meta['featuredbanner_meta'];
+                        if ((isset($term_meta['featuredbannerlink_meta'])) && ($term_meta['featuredbannerlink_meta'])) $bannerlink = $term_meta['featuredbannerlink_meta'];
                         print("\"" . $bannerlink . "\""); ?>><img alt="Featurered 1" src=<?php
                             print("\"" . $banner . "\""); ?>/></a>
                     </div>
@@ -140,8 +171,9 @@ if ($all_categories) {
                                     $bFirst = FALSE;
                                     print(" active");
                                 } ?>" id="tab-<?php print($sc_id); ?>">
-                                    <ul class="product-list owl-carousel" data-dots="false" data-loop="true"
-                                        data-nav="true" data-margin="0" data-autoplayTimeout="1000"
+                                    <ul class="product-list owl-carousel" data-pagination="false" data-dots="false" data-loop="true"
+                                        data-nav="true" data-navigation="true" data-navigationText='["1","2"]'
+                                        data-margin="0" data-autoplayTimeout="1000"
                                         data-autoplayHoverPause="true"
                                         data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                         <?php
@@ -173,6 +205,7 @@ if ($all_categories) {
 
                                             <li>
                                                 <div class="left-block">
+                                            	    <div class="left-block-inside">
                                                     <?php
                                                     //$wthumbnail_id = get_woocommerce_term_meta(  $loop->post->ID, 'thumbnail_id', true );
                                                     //$wimage = wp_get_attachment_url( $wthumbnail_id );
@@ -190,7 +223,7 @@ if ($all_categories) {
                                                     ?>
 
                                                     <a href="<?php echo get_permalink($loop->post->ID) ?>">
-                                                        <img class="img-responsive" style="height: 199px; "
+                                                        <img class="img-responsive" <?php /*style="height: 199px; "*/ ?>
                                                              alt="<?php echo esc_attr($loop->post->post_title); ?>"
                                                              src="<?php
                                                              echo $image_link;
@@ -204,6 +237,7 @@ if ($all_categories) {
                                                     } ?>
                                             <a title="Лидер продаж" class="search" href="#"></a>
                                     </div>-->
+                                                    </div>
                                                     <div class="add-to-cart">
                                                         <a title="Добавить в корзину"
                                                            data-product_id="<?php echo $loop->post->ID; ?>"
@@ -213,18 +247,30 @@ if ($all_categories) {
                                                     </div>
                                                 </div>
                                                 <div class="right-block">
+                                                    <div style="height: 80px;">
                                                     <h5 class="product-name"><a
-                                                            href="<?php echo get_permalink($loop->post->ID) ?>"><?php echo esc_attr($loop->post->post_title); ?></a>
+                                                            <?php $sPName = esc_attr($loop->post->post_title); $sP75Name = $sPName;
+                                                              $bNeedTitle = false;
+                                                              if (mb_strlen($sPName, 'UTF-8') > 65) {
+                                                                $sP75Name = mb_substr($sPName, 0, 65, 'UTF-8')."..."; $bNeedTitle = true;
+                                                              } ?>
+                                                            href="<?php echo get_permalink($loop->post->ID); 
+                                                            if ($bNeedTitle) print("\" title=\"".$sPName); ?>"><?php 
+                                                            print($sP75Name);
+                                                            ?></a>
                                                     </h5>
+                                                    </div>
 
                                                     <div class="content_price">
                                                         <del>
                                                             <span
-                                                                class="amount"><?php print($price . "&nbsp;&#8381;."); ?></span>
+                                                                class="amount"><?php print($price . "<span style=\"text-decoration: none;\" class=\"rur\">&nbsp;руб.</span>"); ?></span>
                                                         </del>
                                                         <ins style="text-decoration:none;">
                                                             <span
-                                                                class="amount"><?php print($sale . "&nbsp;&#8381;."); ?></span>
+                                                                class="amount"><?php 
+                                                                print($sale . "<span class=\"rur\">&nbsp;руб.</span>");
+                                                                /*print($sale . "&nbsp;&#8381;.");*/ ?></span>
                                                         </ins>
                                                     </div>
                                                     <?php /*<div class="product-star">

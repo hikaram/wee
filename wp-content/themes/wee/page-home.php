@@ -24,7 +24,7 @@ get_header(); ?>
 
 	    	<?php get_template_part('parts/home/categories'); ?>
 
-	    	<?php get_template_part('parts/home/banner-bottom'); ?>
+	    	<?php /*How it is moved to categories get_template_part('parts/home/banner-bottom');*/  ?>
 
 	    </div>
 	</div>

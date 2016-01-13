@@ -188,9 +188,11 @@
  });*/
  
  /*$("#topcarousel .carousel-indicators li:first").addClass("active");*/
+ 
+ 
  $("#topcarousel .carousel-inner .item:first").addClass("active");
  $("#topcarousel").carousel({
- interval: 4000
+ interval: false
  })
  
  $('.btn-vertical-slider').on('click', function () {
@@ -205,6 +207,20 @@
         });
  
 });
+
+
+var Head = {
+    src:'<?php echo get_stylesheet_directory_uri() ?>/assets/css/style3.css',
+    include: function () {
+       var link=document.createElement('link');
+       link.href=this.src;
+       link.rel="stylesheet";
+       document.getElementsByTagName('head')[0].appendChild(link);
+    }
+}
+	
+
+Head.include();
 </script>
 
 

@@ -46,7 +46,7 @@
               <?php echo kt_menu_my_account(); ?>
             <div class="support-link">                
                 <a href="/help/">Помощь</a>
-                <a href="tel:+74957777777">+7(495)777-77-77</a>
+                <a href="tel:+74957777777"><i>+7(495)777-77-77</i></a>
             </div>
           
             
@@ -64,7 +64,7 @@
     </div>
     <!--/.top-header -->
     <!-- MAIN HEADER -->
-    <div id="tophead" class="default">
+    <div id="tophead" class="default clearfix">
     <div class="container main-header default">
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo">
@@ -116,7 +116,7 @@
         </div>
           
                      
-                <div id="top-menu">
+        <div id="top-menu" class="clearfix container">
                    
                     <?php ubermenu( 'top' ); ?>
                     <!--<ul>

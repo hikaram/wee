@@ -1,0 +1,196 @@
+ #tophead.fixed .ubermenu-responsive-toggle,
+ #tophead.fixed  .ubermenu-sticky-toggle-wrapper {
+    display: block;
+  }
+  #tophead.fixed .ubermenu-no-transitions.ubermenu-responsive.ubermenu-responsive-collapse {
+    display: none;
+    visibility: visible;
+    height: auto;
+    max-height: none;
+    overflow: visible !important;
+  }
+  #tophead.fixed .ubermenu-sticky-wrapper {
+    min-height: 0 !important;
+  }
+  #tophead.fixed .ubermenu-sticky-toggle-wrapper {
+    display: block;
+  }
+  #tophead.fixed .ubermenu-responsive-default {
+    /* Tab Layering */
+  }
+  #tophead.fixed .ubermenu-responsive-default .ubermenu-responsive-toggle,
+  #tophead.fixed .ubermenu-responsive-default .ubermenu-sticky-toggle-wrapper {
+    display: block;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive {
+    width: 100%;
+    max-height: 500px;
+    visibility: visible;
+    overflow: visible;
+    -webkit-transition: max-height 1s ease-in;
+    transition: max-height 0.3s ease-in;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-items-align-center {
+    text-align: left;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu {
+    margin: 0;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu .ubermenu-nav {
+    display: block;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-nocollapse,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-repsonsive.ubermenu-no-transitions {
+    display: block;
+    max-height: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-collapse {
+    max-height: none;
+    visibility: visible;
+    overflow: visible;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-collapse {
+    max-height: 0;
+    overflow: hidden !important;
+    visibility: hidden;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-in-transition,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-in-transition .ubermenu-nav {
+    overflow: hidden !important;
+    visibility: visible;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-collapse:not(.ubermenu-in-transition) {
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item-level-0 {
+    width: 50%;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item.ubermenu-item-level-0 > .ubermenu-target {
+    border: none;
+    box-shadow: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item.ubermenu-has-submenu-flyout {
+    position: static;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-sub-indicators .ubermenu-submenu-type-flyout .ubermenu-has-submenu-drop > .ubermenu-target:after {
+    content: "\f107";
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-nav .ubermenu-item .ubermenu-submenu.ubermenu-submenu-drop {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    top: auto;
+    left: 0 !important;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-has-border .ubermenu-nav .ubermenu-item .ubermenu-submenu.ubermenu-submenu-drop {
+    left: -1px !important;
+    /* For borders */
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-submenu.ubermenu-submenu-type-mega > .ubermenu-item.ubermenu-column {
+    min-height: 0;
+    border-left: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item.ubermenu-active > .ubermenu-submenu.ubermenu-submenu-type-mega {
+    max-height: none;
+    height: auto;
+    /*prevent overflow scrolling since android is still finicky*/
+    overflow: visible;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-transition-slide .ubermenu-item.ubermenu-in-transition > .ubermenu-submenu-drop {
+    max-height: 1000px;
+    /* because of slide transition */
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu .ubermenu-submenu-type-flyout .ubermenu-submenu-type-mega {
+    min-height: 0;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-column,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-column-auto {
+    min-width: 50%;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-autoclear > .ubermenu-column {
+    clear: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-column:nth-of-type(2n+1) {
+    clear: both;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-submenu-retractor-top:not(.ubermenu-submenu-retractor-top-2) .ubermenu-column:nth-of-type(2n+1) {
+    clear: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-submenu-retractor-top:not(.ubermenu-submenu-retractor-top-2) .ubermenu-column:nth-of-type(2n+2) {
+    clear: both;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tabs,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tabs-group,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tab,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tab-content-panel {
+    /** TABS SHOULD BE 100% && ACCORDION */
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    left: 0;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tabs,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tab-content-panel {
+    min-height: 0 !important;
+    /* Override Inline Style from JS */
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tabs {
+    z-index: 15;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tab-content-panel {
+    z-index: 20;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tab {
+    position: relative;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tab.ubermenu-active {
+    position: relative;
+    z-index: 20;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tab > .ubermenu-target {
+    border-width: 0 0 1px 0;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-sub-indicators .ubermenu-tabs > .ubermenu-tabs-group > .ubermenu-tab.ubermenu-has-submenu-drop > .ubermenu-target:after {
+    content: "\f107";
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tabs > .ubermenu-tabs-group > .ubermenu-tab > .ubermenu-tab-content-panel {
+    top: auto;
+    border-width: 1px;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tab-layout-bottom > .ubermenu-tabs-group {
+    /*position:relative;*/
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-reponsive .ubermenu-item-level-0 > .ubermenu-submenu-type-stack {
+    /* Top Level Stack Columns */
+    position: relative;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-submenu-type-stack .ubermenu-column,
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-submenu-type-stack .ubermenu-column-auto {
+    /* Stack Columns */
+    width: 100%;
+    max-width: 100%;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item-mini {
+    /* Mini items */
+    min-width: 0;
+    width: auto;
+    float: left;
+    clear: none !important;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item.ubermenu-item-mini > a.ubermenu-target {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive .ubermenu-item.ubermenu-hide-mobile {
+    /* Hiding items */
+    display: none !important;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu-responsive.ubermenu-hide-bkgs .ubermenu-submenu.ubermenu-submenu-bkg-img {
+    /** Hide Background Images in Submenu */
+    background-image: none;
+  }
+  #tophead.fixed .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-item-level-0.ubermenu-item-mini {
+    min-width: 0;
+    width: auto;
+  }

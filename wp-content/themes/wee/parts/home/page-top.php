@@ -32,7 +32,8 @@
 
                                 ?>
                                 <?php if ( $loop->have_posts() ) { ?>
-                                <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                <ul class="product-list rasprodaja owl-carousel" data-dots="false" data-pagination="false" data-loop="true" 
+                                data-navigation = "true" data-nav = "true"data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
                                     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
                                         <?php wc_get_template_part( 'content', 'product-cart' ); ?>
                                     <?php endwhile; ?>

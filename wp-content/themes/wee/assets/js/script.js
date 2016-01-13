@@ -81,6 +81,6 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('#'+$(this).attr('rel')).addClass('active');
     });
-
-
+    
+    
 });
