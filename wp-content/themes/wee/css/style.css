@@ -1720,7 +1720,7 @@ span.notify-right{
 /*----------------
 [5. Home slide]
 */
-.header-top1-right{
+/*.header-top1-right{
    
     padding: 0;
     border-top: 3px solid #ff3366;
@@ -1831,6 +1831,7 @@ span.notify-right{
 .bx-wrapper{
     margin: 0;
 }
+*/
 /*---------------
 [6. Page top]
 */
@@ -1838,10 +1839,11 @@ span.notify-right{
     margin-top: 30px;
 }
 
+
 /*------------------
 [6.1 Latest deals]
 */
-.latest-deals{
+/*.latest-deals{
 }
 
 .latest-deals .latest-deal-title{
@@ -1953,6 +1955,7 @@ span.notify-right{
   right: -15px;
   opacity: 1;
 }
+*/
 
 /*-------------------
 [6.2. Popular tabs]
@@ -2016,7 +2019,7 @@ span.notify-right{
 /*--------------------
 [7. Services]
 */
-.service{
+/*.service{
     background:#f6f6f6;
     border: 1px solid #eaeaea;
     padding: 19px 0;
@@ -2049,6 +2052,8 @@ span.notify-right{
 .service .service-item:last-child{
     border-right: none;
 }
+*/
+
 
 
 /*----------------
@@ -2097,7 +2102,7 @@ span.notify-right{
 .owl-item .left-block>a img {
     /*height: auto !important;*/
     /*width: 140px !important;*/
-    max-height: 185px !important;
+    /*maoox-height: 185px !important;*/
 }
 .product-list li .left-block img{
     transition:all 0.5s;
@@ -2548,7 +2553,7 @@ span.notify-right{
 /*------------------
 [11.1.2 Product featured]
 */
-.product-featured{
+/* conflict!!!  .product-featured{
     margin-top: 0px;
     background: #fff;
 }
@@ -2602,7 +2607,7 @@ span.notify-right{
     opacity: 1;
     visibility: inherit;
 }
-
+*/ 
 /*
 [11.2 Banner bootom]
 */

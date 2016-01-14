@@ -66,7 +66,7 @@
                 </div>
             </div><!-- /#introduce-box -->
             <!-- #trademark-box -->
-            <div id="trademark-box" class="row">
+            <!--div id="trademark-box" class="row">
                 <div class="col-sm-12">
                     <ul id="trademark-list">
                         <li id="payment-methods">Принимаем к оплате</li>
@@ -87,9 +87,9 @@
                         </li>
                     </ul> 
                 </div>
-            </div> <!-- /#trademark-box -->
+            </div--> <!-- /#trademark-box -->
             <!-- #trademark-text-box -->
-            <div id="trademark-text-box" class="row">
+            <!--div id="trademark-text-box" class="row">
 <?php $args = array (
         'taxonomy' => 'product_cat',
         'orderby' => 'name',
@@ -138,7 +138,7 @@
                         <li><a href="#" >Smart TV</a></li>
                     </ul>
                 </div> */ ?>
-            </div><!-- /#trademark-text-box -->
+            </div--><!-- /#trademark-text-box -->
             <div id="footer-menu-box">
                 <p class="text-center">&copy; 2015 Weewow.<br>При перепечатке материалов ссылка на сайт обязательна</p>
             </div><!-- /#footer-menu-box -->
@@ -160,6 +160,14 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/functions.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/theme-script.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/script.js"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/assets/js/polyfill.object-fit.min.js"></script>
+<script>
+    objectFit.polyfill({
+        selector: 'img', // this can be any CSS selector
+        fittype: 'contain', // either contain, cover, fill or none
+        disableCrossDomain: 'true' // either 'true' or 'false' to not parse external CSS files.
+    });
+</script>
 <script>
  /*$(document).ready(function() {
         
@@ -169,7 +177,7 @@
     });*/
     $(window).load(function() {
  // executes when complete page is fully loaded, including all frames, objects and images
-  $('#contenhomeslider').bxSlider(
+/*  $('#contenhomeslider').bxSlider(
                 {
                     nextText:'<i class="fa fa-angle-right"></i>',
                     prevText:'<i class="fa fa-angle-left"></i>',
@@ -177,6 +185,7 @@
                 }
 
             );
+*/            
    /* $(".cart-block .cart-block-list").jCarouselLite({
     btnNext: ".cart-block .down",
     btnPrev: ".cart-block .up",

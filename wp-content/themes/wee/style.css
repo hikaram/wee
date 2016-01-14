@@ -18,14 +18,16 @@ Version: 1.0
     width: 30%;
 }
 
-.category-featured .nav .active .tab{
+.category-featured .nav .active .tab,
+.category-featured .active.togMenu>li.active>a.tab{
     display: none;
-
-}.category-featured .nav .active .link{
+}
+.category-featured .nav .active .link,
+.category-featured .active.togMenu>li.active>a.link {
     display: block;
 
 }
-.category-featured .nav .link{
+.category-featured .nav .link,
+.category-featured .active.togMenu>li>a.link {
     display: none;
-
 }

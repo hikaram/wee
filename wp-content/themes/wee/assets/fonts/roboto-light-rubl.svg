@@ -1,0 +1,82 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg>
+<metadata>
+Created by FontForge 20090914 at Mon Jan 11 02:54:34 2016
+ By www-data
+Font data copyright Google 2012
+</metadata>
+<defs>
+<font id="Roboto-Light" horiz-adv-x="1498" >
+  <font-face 
+    font-family="Roboto Light"
+    font-weight="300"
+    font-stretch="normal"
+    units-per-em="2048"
+    panose-1="2 0 0 0 0 0 0 0 0 0"
+    ascent="1638"
+    descent="-410"
+    bbox="80 -208.001 1403 1677"
+    underline-thickness="100"
+    underline-position="-100"
+    unicode-range="U+0024-U+25FC"
+  />
+<missing-glyph horiz-adv-x="1024" 
+ />
+    <glyph glyph-name=".notdef" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="dollar" unicode="$" horiz-adv-x="1135" 
+d="M120 412l3 6.00195h112c0 -118 33.667 -203 101 -255s148.666 -78 243.999 -78c98.667 0 176.834 25.833 234.501 77.5s86.5 117.167 86.5 196.5c0 73.333 -24 133.333 -72 180s-132.667 91.667 -254 135c-138.667 44 -241.334 97 -308.001 159s-100 149.333 -100 262
+c0 108 33.333 196 100 264s157.334 106.667 272.001 116v202h102v-202c116.667 -10.667 207 -54.334 271 -131.001s95.333 -180.334 94 -311.001l-3 -5h-112c0 101.333 -26.667 183.666 -80 246.999s-128 95 -224 95c-98.667 0 -173.5 -25.833 -224.5 -77.5
+s-76.5 -116.834 -76.5 -195.501c0 -76 22.667 -137.167 68 -183.5s132.333 -90.833 261 -133.5c138 -46 240.167 -99.5 306.5 -160.5s99.5 -147.167 99.5 -258.5c0 -110.667 -34.667 -199.167 -104 -265.5s-162.666 -104.166 -279.999 -113.499v-190h-101v189
+c-120.667 7.33301 -220.834 45.833 -300.501 115.5s-118.167 174.834 -115.5 315.501z" />
+    <glyph glyph-name="period" unicode="." horiz-adv-x="16" 
+ />
+    <glyph glyph-name="uni0420" unicode="&#x420;" 
+d="M191 328v101.999h261v175h-261v102h261v749h471c152.667 0 270.834 -38.833 354.501 -116.5s125.5 -180.5 125.5 -308.5c0 -129.333 -41.833 -232.666 -125.5 -309.999s-201.834 -116 -354.501 -116h-352v-175h546v-102h-546v-328h-119v328h-261zM571 706.999h352
+c120 0 210.167 30.5 270.5 91.5s90.5 137.833 90.5 230.5c0 93.333 -30 170.833 -90 232.5s-150.333 92.5 -271 92.5h-352v-647z" />
+    <glyph glyph-name="uni0431" unicode="&#x431;" horiz-adv-x="20" 
+ />
+    <glyph glyph-name="uni0440" unicode="&#x440;" 
+d="M191 328v101.999h261v175h-261v102h261v749h471c152.667 0 270.834 -38.833 354.501 -116.5s125.5 -180.5 125.5 -308.5c0 -129.333 -41.833 -232.666 -125.5 -309.999s-201.834 -116 -354.501 -116h-352v-175h546v-102h-546v-328h-119v328h-261zM571 706.999h352
+c120 0 210.167 30.5 270.5 91.5s90.5 137.833 90.5 230.5c0 93.333 -30 170.833 -90 232.5s-150.333 92.5 -271 92.5h-352v-647z" />
+    <glyph glyph-name="uni0443" unicode="&#x443;" horiz-adv-x="15" 
+ />
+    <glyph glyph-name="uni2000" unicode="&#x2000;" horiz-adv-x="838" 
+ />
+    <glyph glyph-name="uni2001" unicode="&#x2001;" horiz-adv-x="1677" 
+ />
+    <glyph glyph-name="uni2002" unicode="&#x2002;" horiz-adv-x="838" 
+ />
+    <glyph glyph-name="uni2003" unicode="&#x2003;" horiz-adv-x="1677" 
+ />
+    <glyph glyph-name="uni2004" unicode="&#x2004;" horiz-adv-x="559" 
+ />
+    <glyph glyph-name="uni2005" unicode="&#x2005;" horiz-adv-x="419" 
+ />
+    <glyph glyph-name="uni2006" unicode="&#x2006;" horiz-adv-x="279" 
+ />
+    <glyph glyph-name="uni2007" unicode="&#x2007;" horiz-adv-x="279" 
+ />
+    <glyph glyph-name="uni2008" unicode="&#x2008;" horiz-adv-x="209" 
+ />
+    <glyph glyph-name="uni2009" unicode="&#x2009;" horiz-adv-x="335" 
+ />
+    <glyph glyph-name="uni200A" unicode="&#x200a;" horiz-adv-x="93" 
+ />
+    <glyph glyph-name="uni202F" unicode="&#x202f;" horiz-adv-x="335" 
+ />
+    <glyph glyph-name="uni205F" unicode="&#x205f;" horiz-adv-x="419" 
+ />
+    <glyph glyph-name="Euro" unicode="&#x20ac;" horiz-adv-x="1073" 
+d="M80 533l0.000976562 102h169v168h-169v102h169v37c0 162.667 45.167 292.5 135.5 389.5s208.833 145.5 355.5 145.5c38 0 75.5 -2.66699 112.5 -8s76.833 -13 119.5 -23l-9 -106c-36 10.667 -72.833 19.167 -110.5 25.5s-75.167 9.5 -112.5 9.5
+c-114.667 0 -205.334 -38.667 -272.001 -116s-100 -182.333 -100 -315v-39h547v-102h-547v-168h547v-102h-547v-19c0 -132 33.833 -237.333 101.5 -316s158.5 -118 272.5 -118c38 0 75.667 2.83301 113 8.5s73.333 14.167 108 25.5l9 -104c-36 -10 -73.5 -17.667 -112.5 -23
+s-78.167 -8 -117.5 -8c-146.667 0 -265.5 48.333 -356.5 145s-136.5 226.667 -136.5 390v19h-169z" />
+    <glyph glyph-name="uni25FC" unicode="&#x25fc;" horiz-adv-x="500" 
+d="M0 0z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="682" 
+ />
+  </font>
+</defs></svg>

@@ -194,3 +194,6 @@
     min-width: 0;
     width: auto;
   }
+  #top-menu >nav>ul>li>a>span.ubermenu-target-title:hover {
+    text-decoration:underline;
+  }

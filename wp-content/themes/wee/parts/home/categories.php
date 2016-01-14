@@ -16,7 +16,7 @@ $args = array(
     'hide_empty' => $empty
 );
 $all_categories = get_categories($args);
-$colors = array("red", "green", "orange", "blue", "blue2", "gray");
+$colors = array("dpurple"); //"red", "green", "orange", "blue", "blue2", "gray");
 $colorindex = 0;
 if ($all_categories) {
     foreach ($all_categories as $cat) {
@@ -27,33 +27,41 @@ if ($all_categories) {
         ?>
 
 <!-- Horizontal Banner(s) -->
+<?php
+    $term_meta = get_option("taxonomy_" . $cat->term_id);
+    $banner_l = NULL;
+    $bannerlink_l = "#";
+    if ((isset($term_meta['leftbanner_meta'])) && ($term_meta['leftbanner_meta'])) $banner_l = $term_meta['leftbanner_meta'];
+    if ((isset($term_meta['leftbannerlink_meta'])) && ($term_meta['leftbannerlink_meta'])) $bannerlink_l = $term_meta['leftbannerlink_meta'];
+    $banner_r = NULL;
+    $bannerlink_r = "#";
+    if ((isset($term_meta['rightbanner_meta'])) && ($term_meta['rightbanner_meta'])) $banner_r = $term_meta['rightbanner_meta'];
+    if ((isset($term_meta['rightbannerlink_meta'])) && ($term_meta['rightbannerlink_meta'])) $bannerlink_r = $term_meta['rightbannerlink_meta'];
+    if (($banner_l) || ($banner_r)) { ?>
 <div class="row banner-bottom">
-    <div class="col-sm-6">
-        <div class="banner-boder-zoom">
-                    <?php
-                    $term_meta = get_option("taxonomy_" . $cat->term_id);
-                    ?>
-                    <a href=<?php
-                    $banner = get_stylesheet_directory_uri() . "/assets/data/ads17.jpg";
-                    $bannerlink = "#";
-                    if ((isset($term_meta['leftbanner_meta'])) && ($term_meta['leftbanner_meta'])) $banner = $term_meta['leftbanner_meta'];
-                    if ((isset($term_meta['leftbannerlink_meta'])) && ($term_meta['leftbannerlink_meta'])) $bannerlink = $term_meta['leftbannerlink_meta'];
-                    print("\"" . $bannerlink . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
-                        print("\"" . $banner . "\""); ?>/></a>
-        </div>
+  <div class=<?php print("\"".((($banner_l) && ($banner_r))? "col-sm-6" : "col-sm-12")."\""); ?>>
+    <?php if ($banner_l) { ?>
+    <div class="banner-boder-zoom">
+      <a href=<?php print("\"" . $bannerlink_l . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
+                        print("\"" . $banner_l . "\""); ?>/></a>
     </div>
-    <div class="col-sm-6">
-        <div class="banner-boder-zoom">
-                    <a href=<?php
-                    $banner = get_stylesheet_directory_uri() . "/assets/data/ads18.jpg";
-                    $bannerlink = "#";
-                    if ((isset($term_meta['rightbanner_meta'])) && ($term_meta['rightbanner_meta'])) $banner = $term_meta['rightbanner_meta'];
-                    if ((isset($term_meta['rightbannerlink_meta'])) && ($term_meta['rightbannerlink_meta'])) $bannerlink = $term_meta['rightbannerlink_meta'];
-                    print("\"" . $bannerlink . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
-                        print("\"" . $banner . "\""); ?>/></a>
-        </div>
+    <?php if ($banner_r) { /*both banners*/ ?>
+  </div>
+  <div class="col-sm-6">
+<?php }
+   } ?>
+    <?php if ($banner_r) { ?>
+    <div class="banner-boder-zoom">
+      <a href=<?php
+        //$banner = get_stylesheet_directory_uri() . "/assets/data/ads18.jpg";
+        //$bannerlink = "#";
+        print("\"" . $bannerlink_r . "\""); ?>><img alt="ads" class="img-responsive" src=<?php
+                        print("\"" . $banner_r . "\""); ?>/></a>
     </div>
+    <?php } ?>
+  </div>
 </div>
+<?php } ?>
 <!-- end banner bottom -->
 
         <!-- featured category fashion -->
@@ -63,8 +71,8 @@ if ($all_categories) {
             print($colors[$colorindex++]); ?> show-brand">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-brand"><a href="#"><img alt="fashion"
-                                                               src=<?php print("\"" . $catimagelink . "\""); ?>/><?php echo $cat->name; ?>
+                    <div class="navbar-brand"><a href=<?php print("\"" .get_term_link($cat->slug,'product_cat'). "\"");?>><!--img alt=<?php
+                    print("\"" .get_term_link($cat->slug,'product_cat')."\"");?> src=<?php print("\"" . $catimagelink . "\""); ?>/--><?php echo $cat->name; ?>
                         </a></div>
                     <span class="toggle-menu"></span>
 
@@ -105,13 +113,13 @@ if ($all_categories) {
                                 } else {
                                     print("\"#tab-" . $sc->term_id . "\"");
                                 } ?>><?php print($sc->name); ?></a>
-                            <a href="<?=get_term_link($sc->slug,'product_cat')?>" class="link"><?=$sc->name ?></a>
+                            <?php if ($iSCPos < 400) { ?><a href="<?=get_term_link($sc->slug,'product_cat')?>" class="link"><?=$sc->name ?></a><?php } ?>
                             </li>
                             <?php $iSCPos++;
                             } ?>
                         </ul>
                         <?php if ($iSCPos >= 4) {
-                            ?><li class="moreMenu"><span>Еще</span></li>
+                            ?><div class="moreMenu"><span>Еще</span></div>
                         <?php } ?>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -205,7 +213,7 @@ if ($all_categories) {
 
                                             <li>
                                                 <div class="left-block">
-                                            	    <div class="left-block-inside">
+                                            	    <!--div class="left-block-inside"-->
                                                     <?php
                                                     //$wthumbnail_id = get_woocommerce_term_meta(  $loop->post->ID, 'thumbnail_id', true );
                                                     //$wimage = wp_get_attachment_url( $wthumbnail_id );
@@ -214,8 +222,8 @@ if ($all_categories) {
                                                     $image_id = $product->get_image_id();
                                                     $image_link = wp_get_attachment_url($image_id);
 
-                                                    $price = get_post_meta($loop->post->ID, '_regular_price', true);
-                                                    $sale = get_post_meta($loop->post->ID, '_sale_price', true);
+                                                    $price = intval(get_post_meta($loop->post->ID, '_regular_price', true));
+                                                    $sale = intval(get_post_meta($loop->post->ID, '_sale_price', true));
 
                                                     //$product = wc_get_product( $loop->post->ID );
                                                     //$attachment_ids = $product->get_gallery_attachment_ids();
@@ -227,7 +235,7 @@ if ($all_categories) {
                                                              alt="<?php echo esc_attr($loop->post->post_title); ?>"
                                                              src="<?php
                                                              echo $image_link;
-                                                             ?>"/></a>
+                                                             ?>" /></a>
                                                     <!--  <div class="quick-view">
                                             <a title="Рекомендуем" class="heart" href="#"></a>
                                     <?php
@@ -237,22 +245,22 @@ if ($all_categories) {
                                                     } ?>
                                             <a title="Лидер продаж" class="search" href="#"></a>
                                     </div>-->
-                                                    </div>
-                                                    <div class="add-to-cart">
+                                                    <!--/div-->
+                                                    <!--div class="add-to-cart">
                                                         <a title="Добавить в корзину"
                                                            data-product_id="<?php echo $loop->post->ID; ?>"
                                                            class="button add_to_cart_button"
                                                            href="/?add-to-cart=<?php echo $loop->post->ID; ?>">Добавить
                                                             в корзину</a>
-                                                    </div>
+                                                    </div-->
                                                 </div>
                                                 <div class="right-block">
-                                                    <div style="height: 80px;">
+                                                    <div style="height: 65px;">
                                                     <h5 class="product-name"><a
                                                             <?php $sPName = esc_attr($loop->post->post_title); $sP75Name = $sPName;
                                                               $bNeedTitle = false;
-                                                              if (mb_strlen($sPName, 'UTF-8') > 65) {
-                                                                $sP75Name = mb_substr($sPName, 0, 65, 'UTF-8')."..."; $bNeedTitle = true;
+                                                              if (mb_strlen($sPName, 'UTF-8') > 55) {
+                                                                $sP75Name = mb_substr($sPName, 0, 55, 'UTF-8')."..."; $bNeedTitle = true;
                                                               } ?>
                                                             href="<?php echo get_permalink($loop->post->ID); 
                                                             if ($bNeedTitle) print("\" title=\"".$sPName); ?>"><?php 
@@ -262,10 +270,9 @@ if ($all_categories) {
                                                     </div>
 
                                                     <div class="content_price">
-                                                        <del>
-                                                            <span
-                                                                class="amount"><?php print($price . "<span style=\"text-decoration: none;\" class=\"rur\">&nbsp;руб.</span>"); ?></span>
-                                                        </del>
+                                                        <del><span
+                                                                class="amount"><?php print($price . "<span style=\"text-decoration: none;\" class=\"rur\">&nbsp;руб.</span>"); 
+                                                                ?></span></del><br />
                                                         <ins style="text-decoration:none;">
                                                             <span
                                                                 class="amount"><?php 
@@ -273,6 +280,14 @@ if ($all_categories) {
                                                                 /*print($sale . "&nbsp;&#8381;.");*/ ?></span>
                                                         </ins>
                                                     </div>
+                                                    <div class="featured-add-cart-button">
+                                                        <a title="Добавить в корзину"
+                                                           data-product_id="<?php echo $loop->post->ID; ?>"
+                                                           class="button add_to_cart_button"
+                                                           href="/?add-to-cart=<?php echo $loop->post->ID; ?>">В корзину</a>
+                                                    </div>
+
+                                                    
                                                     <?php /*<div class="product-star">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>

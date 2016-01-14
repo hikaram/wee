@@ -46,7 +46,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 <li <?php post_class( $classes ); ?>>
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 	<div class="left-block">
-	    <div class="left-block-inside">
+	    <!--div class="left-block-inside"-->
 		<a href="<?php the_permalink(); ?>">
 
 			<?php
@@ -60,7 +60,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			?>
 		</a>
 		</div>
-		<div class="add-to-cart">
+		<!--div class="add-to-cart">
 			<?php
 
 				/**
@@ -71,8 +71,8 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 				do_action( 'woocommerce_after_shop_loop_item' );
 
 			?>
-		</div>
-	</div>
+		</div-->
+	<!--/div-->
 	<div class="right-block">
 		<?php
 
@@ -90,6 +90,21 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			 * @hooked woocommerce_template_loop_price - 10
 			 */
 			do_action( 'woocommerce_after_shop_loop_item_title' );
+
+			/**
+			 * woocommerce_after_shop_loop_item hook
+			 *
+			 * @hooked woocommerce_template_loop_add_to_cart - 10
+			 */
+			//do_action( 'woocommerce_after_shop_loop_item' );
+			
+			?><div class="cart-add-cart-button">
+                          <a title="Добавить в корзину"
+                            data-product_id="<?php echo $product->id; ?>"
+                            class="button add_to_cart_button"
+                            href="<?php echo $product->add_to_cart_url(); ?>">В корзину</a>
+                        </div><?php
+
 		?>
 	</div>
 </li>

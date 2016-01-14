@@ -16,7 +16,7 @@ get_header(); ?>
                 <!-- Center colunm-->
                 <div class="center_column" id="center_column">
 
-                   <h1>Товар добавлен в корзину!"</h1>
+                   <h1>Товар добавлен в корзину!</h1>
 
 
                         <div class="row clearfix">

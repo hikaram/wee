@@ -11,6 +11,7 @@
     function settingCarousel($this){
         var config = $this.data();
         config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
+        config.navigationText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
         config.smartSpeed="300";
         config.lazyLoad = true;
         if( $this.hasClass('owl-style2') ){
@@ -174,10 +175,14 @@
         $('.count-down-time[data-countdown]').each(function() { 
            var $this = $(this), finalDate = $(this).data('countdown');
            if( ! $this.hasClass( 'countdown-lastest' ) ){
+               try {
                $this.countdown(finalDate, function(event) {
                  var fomat ='<span>%H</span><b></b><span>%M</span><b></b><span>%S</span>';
                  $this.html(event.strftime(fomat));
                });
+               }catch(err) {
+		    console.log('exception in countdown - ' + err);
+               };
             }else{
                 $this.countdown(finalDate, function(event) {
                  var fomat = '<span class="box-count"><span class="number">%D</span> <span class="text">Days</span></span><span class="dot">:</span><span class="box-count"><span class="number">%H</span> <span class="text">Hrs</span></span><span class="dot">:</span><span class="box-count"><span class="number">%M</span> <span class="text">Mins</span></span><span class="dot">:</span><span class="box-count"><span class="number">%S</span> <span class="text">Secs</span></span>';

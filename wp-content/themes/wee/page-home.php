@@ -4,7 +4,6 @@ Template Name: Home page
 */
 get_header(); ?>
 
-	<?php get_template_part('parts/home/services'); ?>
 
 	<div class="page-top">
 	    <div class="container">
@@ -29,11 +28,22 @@ get_header(); ?>
 	    </div>
 	</div>
 
+	<?php get_template_part('parts/home/noviny'); ?>
+
+
 	<div class="container">
 
 		<?php get_template_part('parts/home/brand-showcase'); ?>
 
 	</div>
+
+	<div class="container">
+
+		<?php get_template_part('parts/home/aboutmag'); ?>
+
+	</div>
+
+	<?php get_template_part('parts/home/services'); ?>
 
 <!-- 	<div id="content-wrap">
 	    <div class="container">

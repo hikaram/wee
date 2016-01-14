@@ -8,7 +8,7 @@ $(document).ready(function() {
         }
     }
     
-    $('.mainSubCats').each(function(){
+/*    $('.mainSubCats').each(function(){
     var i = 0;
         $(this).find('li').each(function(){
             i=i+1;
@@ -21,6 +21,7 @@ $(document).ready(function() {
             }
         });
     });
+*/
 
     $('.moreMenu span').click(function(){
         console.log('dd');

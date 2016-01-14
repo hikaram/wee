@@ -525,6 +525,7 @@ function kt_get_color_scheme_css( $colors ) {
     /* Price Color */
     
     .product-list li .content_price ins,
+    li.product .content_price ins .amount,
     .product-list li .content_price,
     .trademark-product .info-product .content_price .price,
     .woocommerce .content div.product p.price, .woocommerce .content div.product span.price,

@@ -1,5 +1,22 @@
 <?php
 
+// modern ruble symbol
+add_filter( 'woocommerce_currencies', 'add_ruble' );
+
+function add_ruble( $currencies ) {
+    $currencies['ABC'] = __( 'Российский рубль1', 'woocommerce' );
+    return $currencies;
+}
+
+add_filter('woocommerce_currency_symbol', 'add_ruble_symbol', 10, 2);
+
+function add_ruble_symbol( $currency_symbol, $currency ) {
+    switch( $currency ) {
+	case 'ABC': $currency_symbol = '<span class="rur">&nbsp;руб.</span>'; break;
+    }
+    return $currency_symbol;
+}
+
 // Add "featured" product category banner
 function featuredbanner_taxonomy_add_new_meta_field() {
 	// this will add the custom meta field to the add new term page
