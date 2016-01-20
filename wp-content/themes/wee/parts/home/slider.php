@@ -23,7 +23,7 @@
             
             
               <div class="col-xs-12 col-sm-3 page-top-right">
-                  <br />
+                  
                 <div class="latest-deals">
                 <div class="latest-deal-title">Товар дня</div>
                 <div class="latest-deal-content">
@@ -58,7 +58,8 @@
                                 	break;
                         	    endwhile;
                                 }
-
+
+
 
 
                 ?><!--ul data-responsive="{&quot;0&quot;:{&quot;items&quot;:1},&quot;600&quot;:{&quot;items&quot;:3},&quot;1000&quot;:{&quot;items&quot;:1}}" data-autoplayhoverpause="true" data-autoplaytimeout="1000" data-nav="true" data-loop="true" data-dots="false" class="product-list owl-carousel1">

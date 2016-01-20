@@ -1833,8 +1833,8 @@ span.notify-right{
     border-radius: 90%;
     margin-right: 12px;
     line-height: 24px;
-  color: #CCC;
-background: #CCC none repeat scroll 0% 0%;
+  color: #ff66bb;
+background: #ff66bb none repeat scroll 0% 0%;
 border: 0px none;
 }
 
@@ -1855,16 +1855,17 @@ border: 0px none;
     border-radius: 90%;
     margin-right: 12px;
     line-height: 24px;
-  color: #CCC;
-    background: #CCC none repeat scroll 0% 0%;
+  color: #ff66bb;
+    background: #ff66bb none repeat scroll 0% 0%;
     border: 0px none;
 }
 .homeslider .bx-wrapper .bx-pager.bx-default-pager a:hover, .homeslider .bx-wrapper .bx-pager.bx-default-pager a.active {
   /*background: #ff3366;*/
-  background: #888888;
-  color: #888888;
+  background: #ff66bb;
+  color: #ff66bb;
   /*border: 1px solid #fff;*/
   border: 0px none;
+  opacity: 0.7;
 }
 .bx-wrapper{
     margin: 0;
@@ -2076,9 +2077,10 @@ li.product .right-block,
 }
 .service .service-item{
     padding-left: 35px;
-    border-right: 1px solid #ccc;*/
+    border-right: 1px solid #ccc;
     overflow: hidden;
-    
+    height: 76px;
+    display: inline-table;
 }
 
 .service .service-item .info {
@@ -2088,12 +2090,16 @@ li.product .right-block,
 .service .service-item .icon{
     width: 40px;
     height: 40px;
-    float: left;
+    /*float: left;*/
+    display: table-cell;
+    vertical-align: middle;
 }
 .service .service-item .info{
-    padding-left: 15px;
+     display: table-cell;
     margin-left: 40px;
+    padding-left: 15px;
     padding-top: 2px;
+    vertical-align: middle;
 }
 .service .service-item h3{
     margin: 0;
@@ -2214,7 +2220,8 @@ li.product .left-block>a,
 
 li.product .left-block img,
 .product-list.rasprodaja li .left-block img{
-    transition:all 0.5s;
+    transition:all 0.5s;
+
    webkit-transform: scale(1,1);
   -moz-transform: scale(1,1);
   -o-transform: scale(1,1);
@@ -2370,8 +2377,8 @@ border: none;
 
 .right-block div.cart-add-cart-button {
    float: right;
-   width: 80px;
-   font-size: 90%;
+   width: 90px;
+   font-size: 11px;
    padding-right: 0px;
 }
 
@@ -2467,8 +2474,9 @@ li.product .content_price del,
 .featured-add-cart-button {
    float: right;
    width: 80px;
-   font-size: 90%;
+   font-size: 12px;
    padding-right: 0px;
+   margin-top: 5px;
 }
 
 .product-list li .featured-add-cart-button a {
@@ -2731,6 +2739,7 @@ li.product .content_price del,
 .product-featured{
     margin-top: 0px;
     background: #fff;
+    height: 350px;
 }
 .product-featured .product-featured-content{
     width: 100%;
@@ -2827,9 +2836,9 @@ li.product .content_price del,
     padding-left: 10px;
 }
 .brand-showcase-box{
-   border-bottom: 1px solid #eaeaea;
-   border-left: 1px solid #eaeaea;
-   border-right: 1px solid #eaeaea;
+   border-bottom: none;
+   border-left: none;
+   border-right: none;
     padding-bottom: 30px;
 }
 .brand-showcase-box .brand-showcase-logo{
@@ -6112,11 +6121,11 @@ small.count {
 #tophead.fixed .widget_shopping_cart_content {float: right;}
 li.product .content_price .amount,
 .owl-item .content_price .amount 
-{font-size: 15px !important;}
+{font-size: 16px !important;}
 
 li.product .content_price>del>.amount,
  .owl-item .content_price>del>.amount 
-{font-size: 13px !important;}
+{font-size: 12px !important;}
 
 .latest-deal-content .rs_rs_addtocart {
     background: #ff3366 none no-repeat scroll 0 0;
@@ -6574,4 +6583,20 @@ ul.b-sale li {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 1px solid transparent;
+}
+
+.page-top-right .latest-deals {
+	height: 450px;
+}
+.latest-deals li.product .left-block, .latest-deals .product-list li .left-block {
+	height: 225px !important;
+}
+.latest-deals li.product .left-block img, .latest-deals li .left-block img {
+	max-height: 225px !important;
+}
+.service-item .info, .service-item .info a, .service-item .info span {
+	color: #ccc !important;
+}
+.brand-showcase-box .owl-controls {
+	display:none;
 }

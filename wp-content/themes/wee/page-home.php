@@ -5,16 +5,7 @@ Template Name: Home page
 get_header(); ?>
 
 
-	<div class="page-top">
-	    <div class="container">
-
-	    	<h1 class="page-heading"><span class="page-heading-title2"><?php the_title(); ?></span></h1>
-	    	<div class="content-text clearfix">
-	    		<?php the_content(); ?>
-	    	</div>
-
-	    </div>
-	</div>
+	
 
 	<?php get_template_part('parts/home/page-top'); ?>
 

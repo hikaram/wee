@@ -22,6 +22,8 @@ Version: 1.0
 .category-featured .active.togMenu>li.active>a.tab{
     display: none;
 }
+
+.category-featured .nav .tab,
 .category-featured .nav .active .link,
 .category-featured .active.togMenu>li.active>a.link {
     display: block;
