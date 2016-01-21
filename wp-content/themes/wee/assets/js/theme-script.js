@@ -35,6 +35,7 @@
           var config = $(this).data();
           config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
           config.smartSpeed="300";
+          config.autoWidth = true;
           if($(this).hasClass('owl-style2')){
             config.animateOut="fadeOut";
             config.animateIn="fadeIn";    
@@ -314,8 +315,8 @@
         
         var $menu = $("#tophead");
         if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
-            $menu.removeClass("default").addClass("fixed");
-            $('#box-vertical-megamenus').css('display','none');
+//M            $menu.removeClass("default").addClass("fixed");
+//M            $('#box-vertical-megamenus').css('display','none');
             //$('#cart-block').removeClass("default-cart-block").addClass("fixed-cart-block");
         } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
             $menu.removeClass("fixed").addClass("default");
@@ -495,7 +496,7 @@ $(document).on('mouseenter', '.carousel', function(){$(this).addClass('hover')})
 $(document).on('mouseleave', '.carousel', function(){$(this).removeClass('hover')})   
 
 
-
+$('.brand-showcase-logo li:odd').css('display','none');
     //$menu.hover(function(){$('.cart-block2').css('visibility', 'visible');$('.cart-block2').css('visibility', 'hidden');});
 
 })(jQuery); // End of use strict

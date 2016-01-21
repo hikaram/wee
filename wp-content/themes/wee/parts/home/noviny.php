@@ -1,6 +1,11 @@
 <!-- noviny -->
 <div class="container">
-<h2 class="noviny-title">Новинки</h2>
+  <div class="popular-tabs">
+    <ul class="nav-tab">
+      <li class="active"><a href="#" >Новинки</a></li>
+      <li><a href="#" >Хиты</a></li>
+    </ul>
+<!--h2 class="noviny-title">Новинки</h2-->
 <div class="q-mainGoodsNews">
         <!--div class="mainSaleHd q-mainSaleHd">Новинки</div-->
         <div class="new-container" style="background-color: white; overflow: hidden;">

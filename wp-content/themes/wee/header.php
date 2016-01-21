@@ -74,7 +74,7 @@
                   <!--  <br /><span class="logofont">интим товары для ярких эмоций</span>-->
                 </a>
             </div>
-  <span style="float: left;"><a href="/rasprodaja/" class="topicon"><span class="ubermenu-target-title ubermenu-target-text">Скидки</span></a></span>
+  <span style="float: left; margin-top: -12px;"><a href="/rasprodaja/" class="topicon"><span class="ubermenu-target-title ubermenu-target-text">Скидки</span></a></span>
             <div class="col-xs-5 col-sm-7 header-search-box" style="padding-left: 25px;">
           
              <!--  <form class="form-inline" role="search" method="get" id="searchform" action="/">

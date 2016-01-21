@@ -74,13 +74,10 @@ if ($all_categories) {
                     <div class="navbar-brand"><a href=<?php print("\"" .get_term_link($cat->slug,'product_cat'). "\"");?>><!--img alt=<?php
                     print("\"" .get_term_link($cat->slug,'product_cat')."\"");?> src=<?php print("\"" . $catimagelink . "\""); ?>/--><?php echo $cat->name; ?>
                         </a></div>
-                    <span class="toggle-menu"></span>
+                    <!--span class="toggle-menu"></span-->
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">
-
-                            <?php
+                    <?php 
                             $sc_ids = array();
                             $args2 = array(
                                 'hierarchical' => 1,
@@ -94,7 +91,20 @@ if ($all_categories) {
                             $iSCPos = 0;
                             foreach ($subcats as $sc) {
                             array_push($sc_ids, $sc->term_id);
-                            if ($iSCPos == 4) {
+			    $iSCPos++;
+                            }
+                	/*2101 <div class="collapse navbar-collapse navcategory">
+                                    <ul style="position: relative; vertical-align: top;"
+                                    class="nav navbar-nav owl-carousel" data-pagination="false" data-dots="false" data-loop="true" data-autoWidth="true"
+                                        data-nav="true" data-navigation="true" data-navigationText='["1","2"]'
+                                        data-margin="0" data-autoplayTimeout="1000"
+                                        data-autoplayHoverPause="true"
+                                        data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
+
+                        <!--ul class="nav navbar-nav"-->
+
+                            <?php
+                            if ($iSCPos == 400000) {
                             ?>
                         </ul>
                         <ul class="togMenu">
@@ -118,10 +128,10 @@ if ($all_categories) {
                             <?php $iSCPos++;
                             } ?>
                         </ul>
-                        <?php if ($iSCPos >= 4) {
+                        <?php if ($iSCPos >= 40000) {
                             ?><div class="moreMenu"><span>Еще</span></div>
                         <?php } ?>
-                    </div>
+                    </div> */ 2101?>
                     <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container-fluid -->
@@ -154,7 +164,8 @@ if ($all_categories) {
                 </div>
             </div> */?>
             <div class="product-featured clearfix">
-                <div class="banner-featured">
+        	<div class="banner-featured">
+        	  <div class="banner-featured-int">
                     <div class="featured-text"><span>Наш выбор</span></div>
                     <div class="banner-img">
                         <a href=<?php
@@ -165,6 +176,14 @@ if ($all_categories) {
                         print("\"" . $bannerlink . "\""); ?>><img alt="Featurered 1" src=<?php
                             print("\"" . $banner . "\""); ?>/></a>
                     </div>
+                  </div>
+                </div>
+                <div class="category-sections">
+                    <ul>
+                    <?php foreach ($subcats as $sc) {
+                    ?><li><a href=<?php print("\"".get_term_link($sc->slug,'product_cat')."\""); ?>><?php print($sc->name);?></a></li>
+                    <?php } ?>
+                    </ul>
                 </div>
                 <div class="product-featured-content">
                     <div class="product-featured-list">
@@ -181,7 +200,7 @@ if ($all_categories) {
                                 } ?>" id="tab-<?php print($sc_id); ?>">
                                     <ul class="product-list owl-carousel" data-pagination="false" data-dots="false" data-loop="true"
                                         data-nav="true" data-navigation="true" data-navigationText='["1","2"]'
-                                        data-margin="0" data-autoplayTimeout="1000"
+                                        data-margin="0" data-autoplayTimeout="1000" data-items="3"
                                         data-autoplayHoverPause="true"
                                         data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                         <?php

@@ -2,7 +2,7 @@
         <h2 class="brand-showcase-title">Популярные производители</h2>
         <div class="brand-showcase-box">
             <?php echo do_shortcode('[shortcode_mg_brands_list show_abc="0" group_items="0" show_abc_title="0" show_images="1" hide_empty="0" show_count="0" show_description="0"]'); ?>
-<!--             <ul class="brand-showcase-logo owl-carousel" data-loop="true" data-nav = "true" data-dots="false" data-margin = "1" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":2},"600":{"items":5},"1000":{"items":8}}'>
+            <!-- <ul class="brand-showcase-logo owl-carousel" data-loop="true" data-nav = "true" data-dots="false" data-margin = "1" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":2},"600":{"items":5},"1000":{"items":8}}'>
                 <li data-tab="showcase-1" class="item active"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/gucci.png" alt="logo" class="item-img" /></li>
                 <li data-tab="showcase-2" class="item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/gucci.png" alt="logo" class="item-img" /></li>
                 <li data-tab="showcase-3" class="item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/gucci.png" alt="logo" class="item-img" /></li>
@@ -13,7 +13,7 @@
                 <li data-tab="showcase-8" class="item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/gucci.png" alt="logo" class="item-img" /></li>
                 <li data-tab="showcase-9" class="item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/data/gucci.png" alt="logo" class="item-img" /></li>
             </ul> -->
-            <!-- <div class="brand-showcase-content">
+            <?php /*<div class="brand-showcase-content">
                 <div class="brand-showcase-content-tab active" id="showcase-1">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
@@ -852,7 +852,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div> */ ?>
         </div>
         
     </div>
